@@ -1,2 +1,6 @@
-# Book-AI
-AI doc
+---
+description: Contains notes for AI
+---
+
+# Artificial Intelligence Notes
+
