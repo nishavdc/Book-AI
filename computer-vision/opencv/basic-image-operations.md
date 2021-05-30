@@ -136,6 +136,8 @@ imwrite("grayscale.jpg", img_grayscale);
 * Reducing the size of an image will require resampling of the pixels. 
 * Increasing the size of an image requires reconstruction of the image. This means you need to interpolate new pixels.
 
+### `using height and width`
+
 {% tabs %}
 {% tab title="Python" %}
 ```python
@@ -246,4 +248,92 @@ OpenCV outputs the shape of an image in ![height \* width \* channels ](https://
 {% endhint %}
 
 > When images are read using OpenCV, they are represented as NumPy arrays. And in general, you always refer to the shape of an array, in terms of ![rows \* columns](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-9e8744fadcaf9eeeb4be4a5ac2edf8c3_l3.png) \(rows representing its height and the columns its width\). So, even when reading images with OpenCV to get their shape,  the same NumPy array rule comes into play. And  you get the shape in the form of ![height \* width \* channels](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-34e0ab84b7d34817c20bb347dfbf59e7_l3.png).
+
+`resize(src, dsize[, dst[, fx[, fy[, interpolation]]]])`
+
+* **`src`**: It is the required input image, it could be a string with the path of the input image \(eg: ‘test\_image.png’\).
+* **`dsize`**: It is the desired size of the output image, it can be a new height and width.
+* **`fx`**: Scale factor along the horizontal axis.
+* **`fy`**: Scale factor along the vertical axis.
+* **`interpolation`**: It gives us the option of different methods of resizing the image.
+
+### Using scaling factor
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Scaling Down the image 1.2 times by specifying both scaling factors
+scale_up_x = 1.2
+scale_up_y = 1.2
+# Scaling Down the image 0.6 times specifying a single scale factor.
+scale_down = 0.6
+
+scaled_f_down = cv2.resize(image, None, fx= scale_down, fy= scale_down, interpolation= cv2.INTER_LINEAR)
+scaled_f_up = cv2.resize(image, None, fx= scale_up_x, fy= scale_up_y, interpolation= cv2.INTER_LINEAR)
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+// Scaling Down the image 1.2 times by specifying both scaling factors
+double scale_up_x = 1.2;
+double scale_up_y = 1.2;
+// Scaling Down the image 0.6 times specifying a single scale factor.
+double scale_down = 0.6;
+Mat scaled_f_up, scaled_f_down;
+//resize 
+resize(image,scaled_f_down, Size(), scale_down, scale_down, INTER_LINEAR);
+resize(image, scaled_f_up, Size(), scale_up_x, scale_up_y, INTER_LINEAR);
+```
+{% endtab %}
+{% endtabs %}
+
+In the above **Python** snippet:
+
+* Define new scaling factors along the **horizontal** and **vertical** axis. 
+* Defining the scaling factors removes the need to have new points for width and height. Hence, we keep _**`dsize`**_ as **`None`.** 
+
+In the above **C++** snippet:
+
+* Define the new scaling factors as well as the matrices for the new images.
+* As we do not need new points for width and height, we keep **`Size()`** empty and use the **`resize()`** function. 
+
+### Interpolation Methods
+
+Different interpolation methods are used for different resizing purposes.
+
+* **`INTER_AREA`:** `INTER_AREA` uses pixel area relation for resampling. This is best suited for reducing the size of an image \(**shrinking**\). When used for zooming into the image, it uses the `INTER_NEAREST` method.
+* **`INTER_CUBIC`:** This uses bicubic interpolation for resizing the image. While resizing and interpolating new pixels, this method acts on the 4×4 neighboring pixels of the image. It then takes the weights average of the 16 pixels to create the new interpolated pixel.
+* **`INTER_LINEAR`**: This method is somewhat similar to the `INTER_CUBIC` interpolation. But unlike `INTER_CUBIC`, this uses 2×2 neighboring pixels to get the weighted average for the interpolated pixel.
+* **`INTER_NEAREST`**: The `INTER_NEAREST` method uses the nearest neighbor concept for interpolation. This is one of the simplest methods, using only one neighboring pixel from the image for interpolation.
+
+## Concatenation of images 
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Concatenate images in horizontal axis for comparison
+vertical= np.concatenate((res_inter_nearest, res_inter_linear, res_inter_area), axis = 0)
+# Display the image Press any key to continue
+cv2.imshow('Inter Nearest :: Inter Linear :: Inter Area', vertical)
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+Mat a,b,c;
+vconcat(res_inter_linear, res_inter_nearest, a);
+vconcat(res_inter_area, res_inter_area, b);
+vconcat(a, b, c);
+// Display the image Press any key to continue
+imshow("Inter Linear :: Inter Nearest :: Inter Area :: Inter Area", c);
+```
+{% endtab %}
+{% endtabs %}
+
+Vertical concatenation - `axis = 0`
+
+Horizontal concatenation - `axis = 1`
+
+## Crop image
 
