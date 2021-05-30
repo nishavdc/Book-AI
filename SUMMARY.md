@@ -16,11 +16,15 @@
 
 ## Computer Vision
 
-* [Gstreamer](computer-vision/untitled.md)
+* [Gstreamer](computer-vision/untitled/README.md)
+  * [Commands](computer-vision/untitled/commands/README.md)
+    * [ML Project Lifecycle](computer-vision/untitled/commands/ml-project-lifecycle.md)
+  * [Elements](computer-vision/untitled/elements.md)
+  * [State](computer-vision/untitled/state.md)
+  * [Tutorial 1: Playing Video](computer-vision/untitled/tutorial-1-playing-video.md)
 
 ---
 
-* [Tutorial 1: Playing Video](tutorial-1-playing-video.md)
 * [OpenCV](opencv/README.md)
   * [Installation](opencv/installation.md)
   * [Basic Image Operations](opencv/basic-image-operations.md)
@@ -28,11 +32,4 @@
   * [Untitled](opencv/untitled-1.md)
 
 ## MLops
-
----
-
-* [Commands](commands/README.md)
-  * [ML Project Lifecycle](commands/ml-project-lifecycle.md)
-* [Elements](elements.md)
-* [State](state.md)
 
