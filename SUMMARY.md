@@ -22,14 +22,11 @@
   * [Elements](computer-vision/untitled/elements.md)
   * [State](computer-vision/untitled/state.md)
   * [Tutorial 1: Playing Video](computer-vision/untitled/tutorial-1-playing-video.md)
-
----
-
-* [OpenCV](opencv/README.md)
-  * [Installation](opencv/installation.md)
-  * [Basic Image Operations](opencv/basic-image-operations.md)
-  * [Basic Video Operations](opencv/basic-video-operations.md)
-  * [Untitled](opencv/untitled-1.md)
+* [OpenCV](computer-vision/opencv/README.md)
+  * [Installation](computer-vision/opencv/installation.md)
+  * [Basic Image Operations](computer-vision/opencv/basic-image-operations.md)
+  * [Basic Video Operations](computer-vision/opencv/basic-video-operations.md)
+  * [Untitled](computer-vision/opencv/untitled-1.md)
 
 ## MLops
 
