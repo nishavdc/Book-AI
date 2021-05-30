@@ -16,12 +16,12 @@
 
 ## Computer Vision
 
-* [Gstreamer](computer-vision/untitled/README.md)
-  * [Commands](computer-vision/untitled/commands/README.md)
-    * [ML Project Lifecycle](computer-vision/untitled/commands/ml-project-lifecycle.md)
-  * [Elements](computer-vision/untitled/elements.md)
-  * [State](computer-vision/untitled/state.md)
-  * [Tutorial 1: Playing Video](computer-vision/untitled/tutorial-1-playing-video.md)
+* [Gstreamer](computer-vision/gstreamer/README.md)
+  * [Commands](computer-vision/gstreamer/commands/README.md)
+    * [ML Project Lifecycle](computer-vision/gstreamer/commands/ml-project-lifecycle.md)
+  * [Elements](computer-vision/gstreamer/elements.md)
+  * [State](computer-vision/gstreamer/state.md)
+  * [Tutorial 1: Playing Video](computer-vision/gstreamer/tutorial-1-playing-video.md)
 * [OpenCV](computer-vision/opencv/README.md)
   * [Installation](computer-vision/opencv/installation.md)
   * [Basic Image Operations](computer-vision/opencv/basic-image-operations.md)
