@@ -18,7 +18,7 @@
 
 * [Gstreamer](computer-vision/gstreamer/README.md)
   * [Commands](computer-vision/gstreamer/commands/README.md)
-    * [ML Project Lifecycle](computer-vision/gstreamer/commands/ml-project-lifecycle.md)
+    * [Untitled](computer-vision/gstreamer/commands/untitled.md)
   * [Elements](computer-vision/gstreamer/elements.md)
   * [State](computer-vision/gstreamer/state.md)
   * [Tutorial 1: Playing Video](computer-vision/gstreamer/tutorial-1-playing-video.md)
@@ -29,4 +29,7 @@
   * [Untitled](computer-vision/opencv/untitled-1.md)
 
 ## MLops
+
+* [ML Project Lifecycle](mlops/ml-project-lifecycle.md)
+* [Untitled](mlops/untitled.md)
 

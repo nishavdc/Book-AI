@@ -128,3 +128,212 @@ imwrite("grayscale.jpg", img_grayscale);
 {% endtab %}
 {% endtabs %}
 
+## Resize image - `resize()`
+
+[Link](https://learnopencv.com/image-resizing-with-opencv/)
+
+* It is important to keep in mind the original aspect ratio of the image \(i.e. width by height\), if you want to maintain the same in the resized image too.
+* Reducing the size of an image will require resampling of the pixels. 
+* Increasing the size of an image requires reconstruction of the image. This means you need to interpolate new pixels.
+
+### `using height and width`
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# let's start with the Imports 
+import cv2
+import numpy as np
+
+# Read the image using imread function
+image = cv2.imread('image.jpg')
+cv2.imshow('Original Image', image)
+
+# let's downscale the image using new  width and height
+down_width = 300
+down_height = 200
+down_points = (down_width, down_height)
+resized_down = cv2.resize(image, down_points, interpolation= cv2.INTER_LINEAR)
+
+# let's upscale the image using new  width and height
+up_width = 600
+up_height = 400
+up_points = (up_width, up_height)
+resized_up = cv2.resize(image, up_points, interpolation= cv2.INTER_LINEAR)
+
+# Display images
+cv2.imshow('Resized Down by defining height and width', resized_down)
+cv2.waitKey()
+cv2.imshow('Resized Up image by defining height and width', resized_up)
+cv2.waitKey()
+
+#press any key to close the windows
+cv2.destroyAllWindows()
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+// let's start with including libraries 
+#include<opencv2/opencv.hpp>
+#include<iostream>
+
+// Namespace to nullify use of cv::function(); syntax
+using namespace std;
+using namespace cv;
+
+int main()
+{
+	// Read the image using imread function
+	Mat image = imread("image.jpg");
+	imshow("Original Image", image);
+
+
+	// let's downscale the image using new  width and height
+	int down_width = 300;
+	int down_height = 200;
+	Mat resized_down;
+	//resize down
+	resize(image, resized_down, Size(down_width, down_height), INTER_LINEAR);
+	// let's upscale the image using new  width and height
+	int up_width = 600;
+	int up_height = 400;
+	Mat resized_up;
+	//resize up
+	resize(image, resized_up, Size(up_width, up_height), INTER_LINEAR);
+	// Display Images and press any key to continue
+	imshow("Resized Down by defining height and width", resized_down);
+	waitKey();
+	imshow("Resized Up image by defining height and width", resized_up);
+	waitKey();
+
+
+	destroyAllWindows();
+	return 0;
+}
+```
+{% endtab %}
+{% endtabs %}
+
+To obtain the size of an image:
+
+* use the **shape** method in **Python**
+  * `image.shape` in  returns three values: **\(H, W, C\)**
+* **rows** and **cols** in **C++** 
+  * `image.rows` gives you the height
+  * `image.columns` gives you the width of the image 
+  * using the `size()` function
+    * `image.size().width` returns the width
+    * `image.size().height` returns the height
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Get original height and width
+h,w,c = image.shape
+print("Original Height and Width:", h,"x", w)
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+// Get height and width
+cout << "Original Height and Width :" << image.rows << "x" << image.cols << endl;
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+OpenCV outputs the shape of an image in ![height \* width \* channels ](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-29d033d57c7330f89d8885fbc83a9834_l3.png) format, whereas some other image-processing libraries give in the form of _**width, height, channels.**_ There’s a logical take to this.
+{% endhint %}
+
+> When images are read using OpenCV, they are represented as NumPy arrays. And in general, you always refer to the shape of an array, in terms of ![rows \* columns](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-9e8744fadcaf9eeeb4be4a5ac2edf8c3_l3.png) \(rows representing its height and the columns its width\). So, even when reading images with OpenCV to get their shape,  the same NumPy array rule comes into play. And  you get the shape in the form of ![height \* width \* channels](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-34e0ab84b7d34817c20bb347dfbf59e7_l3.png).
+
+`resize(src, dsize[, dst[, fx[, fy[, interpolation]]]])`
+
+* **`src`**: It is the required input image, it could be a string with the path of the input image \(eg: ‘test\_image.png’\).
+* **`dsize`**: It is the desired size of the output image, it can be a new height and width.
+* **`fx`**: Scale factor along the horizontal axis.
+* **`fy`**: Scale factor along the vertical axis.
+* **`interpolation`**: It gives us the option of different methods of resizing the image.
+
+### Using scaling factor
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Scaling Down the image 1.2 times by specifying both scaling factors
+scale_up_x = 1.2
+scale_up_y = 1.2
+# Scaling Down the image 0.6 times specifying a single scale factor.
+scale_down = 0.6
+
+scaled_f_down = cv2.resize(image, None, fx= scale_down, fy= scale_down, interpolation= cv2.INTER_LINEAR)
+scaled_f_up = cv2.resize(image, None, fx= scale_up_x, fy= scale_up_y, interpolation= cv2.INTER_LINEAR)
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+// Scaling Down the image 1.2 times by specifying both scaling factors
+double scale_up_x = 1.2;
+double scale_up_y = 1.2;
+// Scaling Down the image 0.6 times specifying a single scale factor.
+double scale_down = 0.6;
+Mat scaled_f_up, scaled_f_down;
+//resize 
+resize(image,scaled_f_down, Size(), scale_down, scale_down, INTER_LINEAR);
+resize(image, scaled_f_up, Size(), scale_up_x, scale_up_y, INTER_LINEAR);
+```
+{% endtab %}
+{% endtabs %}
+
+In the above **Python** snippet:
+
+* Define new scaling factors along the **horizontal** and **vertical** axis. 
+* Defining the scaling factors removes the need to have new points for width and height. Hence, we keep _**`dsize`**_ as **`None`.** 
+
+In the above **C++** snippet:
+
+* Define the new scaling factors as well as the matrices for the new images.
+* As we do not need new points for width and height, we keep **`Size()`** empty and use the **`resize()`** function. 
+
+### Interpolation Methods
+
+Different interpolation methods are used for different resizing purposes.
+
+* **`INTER_AREA`:** `INTER_AREA` uses pixel area relation for resampling. This is best suited for reducing the size of an image \(**shrinking**\). When used for zooming into the image, it uses the `INTER_NEAREST` method.
+* **`INTER_CUBIC`:** This uses bicubic interpolation for resizing the image. While resizing and interpolating new pixels, this method acts on the 4×4 neighboring pixels of the image. It then takes the weights average of the 16 pixels to create the new interpolated pixel.
+* **`INTER_LINEAR`**: This method is somewhat similar to the `INTER_CUBIC` interpolation. But unlike `INTER_CUBIC`, this uses 2×2 neighboring pixels to get the weighted average for the interpolated pixel.
+* **`INTER_NEAREST`**: The `INTER_NEAREST` method uses the nearest neighbor concept for interpolation. This is one of the simplest methods, using only one neighboring pixel from the image for interpolation.
+
+## Concatenation of images 
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Concatenate images in horizontal axis for comparison
+vertical= np.concatenate((res_inter_nearest, res_inter_linear, res_inter_area), axis = 0)
+# Display the image Press any key to continue
+cv2.imshow('Inter Nearest :: Inter Linear :: Inter Area', vertical)
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+Mat a,b,c;
+vconcat(res_inter_linear, res_inter_nearest, a);
+vconcat(res_inter_area, res_inter_area, b);
+vconcat(a, b, c);
+// Display the image Press any key to continue
+imshow("Inter Linear :: Inter Nearest :: Inter Area :: Inter Area", c);
+```
+{% endtab %}
+{% endtabs %}
+
+Vertical concatenation - `axis = 0`
+
+Horizontal concatenation - `axis = 1`
+
+## Crop image
+
