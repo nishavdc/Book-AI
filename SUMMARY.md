@@ -28,5 +28,3 @@
   * [Basic Video Operations](computer-vision/opencv/basic-video-operations.md)
   * [Untitled](computer-vision/opencv/untitled-1.md)
 
-## MLops
-
