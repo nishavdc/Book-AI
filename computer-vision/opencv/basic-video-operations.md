@@ -1,5 +1,7 @@
 # Basic Video Operations
 
+[Link](https://learnopencv.com/reading-and-writing-videos-using-opencv/)
+
 Reading and writing videos in OpenCV is very similar to reading and writing images. A video is nothing but a series of images that are often referred to as _frames_. So, all you need to do is loop over all the frames in a video sequence, and then process one frame at a time. 
 
 {% tabs %}
