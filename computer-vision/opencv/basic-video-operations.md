@@ -165,7 +165,121 @@ VideoCapture vid_capture("Resources/Image_sequence/Cars%04d.jpg");
 
 ### From Webcam
 
+Video capture class in OpenCV, has several overloaded functions for convenience that accept different input arguments
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+vid_capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+VideoCapture vid_capture(0);
+```
+{% endtab %}
+{% endtabs %}
+
+Flag **`CAP_DSHOW`** is an optional argument, short for directshow via video input
+
 ## Display Video
 
 ## Write Video
+
+* Retrieve the image frame height and width, using the `get()` method.
+* Initialize a video capture object \(as discussed in the previous sections\), to read the video stream into memory, using any of the sources previously described.
+* Create a video writer object.
+* Use the video writer object to save the video stream to disk. 
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Obtain frame size information using get() method
+frame_width = int(vid_capture.get(3))
+frame_height = int(vid_capture.get(4))
+frame_size = (frame_width,frame_height)
+fps = 20
+
+# Initialize video writer object
+output = cv2.VideoWriter('Resources/output_video_from_file.avi', cv2.VideoWriter_fourcc('M','J','P','G'), 20, frame_size)
+
+#Writing to file
+while(vid_capture.isOpened()):
+    # vid_capture.read() methods returns a tuple, first element is a bool 
+    # and the second is frame
+
+    ret, frame = vid_capture.read()
+    if ret == True:
+           # Write the frame to the output files
+           output.write(frame)
+    else:
+         print(‘Stream disconnected’)
+           break
+
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+// Obtain frame size information using get() method
+Int frame_width = static_cast<int>(vid_capture.get(3));
+int frame_height = static_cast<int>(vid_capture.get(4));
+Size frame_size(frame_width, frame_height);
+int fps = 20;
+//Initialize video writer object
+VideoWriter output("Resources/output.avi", VideoWriter::fourcc('M', 'J', 'P', 'G'),frames_per_second, frame_size);
+
+#Writing to file
+while (vid_capture.isOpened())
+{
+        // Initialize frame matrix
+        Mat frame;
+
+          // Initialize a boolean to check if frames are there or not
+        bool isSuccess = vid_capture.read(frame);
+
+        // If frames are not there, close it
+        if (isSuccess == false)
+        {
+            cout << "Stream disconnected" << endl;
+            break;
+        }
+
+
+            // If frames are present
+        if(isSuccess == true)
+        {
+            //display frames
+            output.write(frame);
+                  // display frames
+                  imshow("Frame", frame);
+
+                  // wait for 20 ms between successive frames and break        
+                  // the loop if key q is pressed
+                  int key = waitKey(20);
+                  if (key == ‘q’)
+                  {
+                      cout << "Key q key is pressed by the user. 
+                      Stopping the video" << endl;
+                      break;
+                  }
+        }
+ }
+```
+{% endtab %}
+{% endtabs %}
+
+Syntax of VideoWriter\(\):
+
+`VideoWriter(filename, apiPreference, fourcc, fps, frameSize[, isColor])`
+
+* `filename`: pathname for the output video file
+* `apiPreference`:  API backends identifier
+* `fourcc`: 4-character code of codec, used to compress the frames \([fourcc](https://docs.opencv.org/4.5.2/dd/d9e/classcv_1_1VideoWriter.html#ad59c61d8881ba2b2da22cff5487465b5)\)
+  * AVI: `cv2.VideoWriter_fourcc('M','J','P','G')`
+  * MP4: `cv2.VideoWriter_fourcc(*'XVID')`
+* `fps`: Frame rate of the created video stream
+* `frame_size`: Size of the video frames
+* `isColor`: If not zero, the encoder will expect and encode color frames. Else it will work with grayscale frames \(the flag is currently supported on Windows only\).
 
