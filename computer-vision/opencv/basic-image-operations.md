@@ -337,3 +337,214 @@ Horizontal concatenation - `axis = 1`
 
 ## Crop image
 
+[Link](https://learnopencv.com/cropping-an-image-using-opencv/)
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+# Import packages
+import cv2
+import numpy as np
+
+img = cv2.imread('test.jpg')
+print(img.shape) # Print image shape
+cv2.imshow("original", img)
+
+# Cropping an image
+cropped_image = img[80:280, 150:330]
+
+# Display cropped image
+cv2.imshow("cropped", cropped_image)
+
+# Save the cropped image
+cv2.imwrite("Cropped Image.jpg", cropped_image)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+// Include Libraries
+#include<opencv2/opencv.hpp>
+#include<iostream>
+
+// Namespace nullifies the use of cv::function();
+using namespace std;
+using namespace cv;
+
+int main()
+{
+	// Read image
+	Mat img = imread("test.jpg");
+	cout << "Width : " << img.size().width << endl;
+	cout << "Height: " << img.size().height << endl;
+	cout<<"Channels: :"<< img.channels() << endl;
+	// Crop image
+	Mat cropped_image = img(Range(80,280), Range(150,330));
+
+	//display image
+	imshow(" Original Image", img);
+	imshow("Cropped Image", cropped_image);
+
+	//Save the cropped Image
+	imwrite("Cropped Image.jpg", cropped_image);
+
+	// 0 means loop infinitely
+	waitKey(0);
+	destroyAllWindows();
+	return 0;
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+In OpenCV, you crop the image using the same method as **NumPy** array slicing.
+{% endhint %}
+
+* The **first** dimension is always the number of **rows** or the **height** of the image.
+* The **second** dimension is the number of **columns** or the **width** of the image. 
+
+### **Dividing an Image Into Small Patches Using Cropping**
+
+{% tabs %}
+{% tab title="Python" %}
+```python
+img =  cv2.imread("test_cropped.jpg")
+image_copy = img.copy() 
+imgheight=img.shape[0]
+imgwidth=img.shape[1]
+
+M = 76
+N = 104
+x1 = 0
+y1 = 0
+
+for y in range(0, imgheight, M):
+    for x in range(0, imgwidth, N):
+        if (imgheight - y) < M or (imgwidth - x) < N:
+            break
+            
+        y1 = y + M
+        x1 = x + N
+
+        # check whether the patch width or height exceeds the image width or height
+        if x1 >= imgwidth and y1 >= imgheight:
+            x1 = imgwidth - 1
+            y1 = imgheight - 1
+            #Crop into patches of size MxN
+            tiles = image_copy[y:y+M, x:x+N]
+            #Save each patch into file directory
+            cv2.imwrite('saved_patches/'+'tile'+str(x)+'_'+str(y)+'.jpg', tiles)
+            cv2.rectangle(img, (x, y), (x1, y1), (0, 255, 0), 1)
+        elif y1 >= imgheight: # when patch height exceeds the image height
+            y1 = imgheight - 1
+            #Crop into patches of size MxN
+            tiles = image_copy[y:y+M, x:x+N]
+            #Save each patch into file directory
+            cv2.imwrite('saved_patches/'+'tile'+str(x)+'_'+str(y)+'.jpg', tiles)
+            cv2.rectangle(img, (x, y), (x1, y1), (0, 255, 0), 1)
+        elif x1 >= imgwidth: # when patch width exceeds the image width
+            x1 = imgwidth - 1
+            #Crop into patches of size MxN
+            tiles = image_copy[y:y+M, x:x+N]
+            #Save each patch into file directory
+            cv2.imwrite('saved_patches/'+'tile'+str(x)+'_'+str(y)+'.jpg', tiles)
+            cv2.rectangle(img, (x, y), (x1, y1), (0, 255, 0), 1)
+        else:
+            #Crop into patches of size MxN
+            tiles = image_copy[y:y+M, x:x+N]
+            #Save each patch into file directory
+            cv2.imwrite('saved_patches/'+'tile'+str(x)+'_'+str(y)+'.jpg', tiles)
+            cv2.rectangle(img, (x, y), (x1, y1), (0, 255, 0), 1)
+
+#Save full image into file directory
+cv2.imshow("Patched Image",img)
+cv2.imwrite("patched.jpg",img)
+ 
+cv2.waitKey()
+cv2.destroyAllWindows()
+```
+{% endtab %}
+
+{% tab title="C++" %}
+```cpp
+Mat img = imread("test_cropped.jpg");
+Mat image_copy = img.clone();
+int imgheight = img.rows;
+int imgwidth = img.cols;
+
+int M = 76;
+int N = 104;
+
+int x1 = 0;
+int y1 = 0;
+for (int y = 0; y<imgheight; y=y+M)
+{
+    for (int x = 0; x<imgwidth; x=x+N)
+    {
+        if ((imgheight - y) < M || (imgwidth - x) < N)
+        {
+            break;
+        }
+        y1 = y + M;
+        x1 = x + N;
+        string a = to_string(x);
+        string b = to_string(y);
+
+        if (x1 >= imgwidth && y1 >= imgheight)
+        {
+            x = imgwidth - 1;
+            y = imgheight - 1;
+            x1 = imgwidth - 1;
+            y1 = imgheight - 1;
+
+            // crop the patches of size MxN
+            Mat tiles = image_copy(Range(y, imgheight), Range(x, imgwidth));
+            //save each patches into file directory
+            imwrite("saved_patches/tile" + a + '_' + b + ".jpg", tiles);  
+            rectangle(img, Point(x,y), Point(x1,y1), Scalar(0,255,0), 1);    
+        }
+        else if (y1 >= imgheight)
+        {
+            y = imgheight - 1;
+            y1 = imgheight - 1;
+
+            // crop the patches of size MxN
+            Mat tiles = image_copy(Range(y, imgheight), Range(x, x+N));
+            //save each patches into file directory
+            imwrite("saved_patches/tile" + a + '_' + b + ".jpg", tiles);  
+            rectangle(img, Point(x,y), Point(x1,y1), Scalar(0,255,0), 1);    
+        }
+        else if (x1 >= imgwidth)
+        {
+            x = imgwidth - 1;   
+            x1 = imgwidth - 1;
+
+            // crop the patches of size MxN
+            Mat tiles = image_copy(Range(y, y+M), Range(x, imgwidth));
+            //save each patches into file directory
+            imwrite("saved_patches/tile" + a + '_' + b + ".jpg", tiles);  
+            rectangle(img, Point(x,y), Point(x1,y1), Scalar(0,255,0), 1);    
+        }
+        else
+        {
+            // crop the patches of size MxN
+            Mat tiles = image_copy(Range(y, y+M), Range(x, x+N));
+            //save each patches into file directory
+            imwrite("saved_patches/tile" + a + '_' + b + ".jpg", tiles);  
+            rectangle(img, Point(x,y), Point(x1,y1), Scalar(0,255,0), 1);    
+        }
+    }
+}
+
+imshow("Patched Image", img);
+imwrite("patched.jpg",img);
+waitKey();
+destroyAllWindows();
+```
+{% endtab %}
+{% endtabs %}
+
