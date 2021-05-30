@@ -16,23 +16,17 @@
 
 ## Computer Vision
 
-* [Gstreamer](computer-vision/untitled.md)
-
----
-
-* [Tutorial 1: Playing Video](tutorial-1-playing-video.md)
-* [OpenCV](opencv/README.md)
-  * [Installation](opencv/installation.md)
-  * [Basic Image Operations](opencv/basic-image-operations.md)
-  * [Basic Video Operations](opencv/basic-video-operations.md)
-  * [Untitled](opencv/untitled-1.md)
+* [Gstreamer](computer-vision/gstreamer/README.md)
+  * [Commands](computer-vision/gstreamer/commands/README.md)
+    * [ML Project Lifecycle](computer-vision/gstreamer/commands/ml-project-lifecycle.md)
+  * [Elements](computer-vision/gstreamer/elements.md)
+  * [State](computer-vision/gstreamer/state.md)
+  * [Tutorial 1: Playing Video](computer-vision/gstreamer/tutorial-1-playing-video.md)
+* [OpenCV](computer-vision/opencv/README.md)
+  * [Installation](computer-vision/opencv/installation.md)
+  * [Basic Image Operations](computer-vision/opencv/basic-image-operations.md)
+  * [Basic Video Operations](computer-vision/opencv/basic-video-operations.md)
+  * [Untitled](computer-vision/opencv/untitled-1.md)
 
 ## MLops
-
----
-
-* [Commands](commands/README.md)
-  * [ML Project Lifecycle](commands/ml-project-lifecycle.md)
-* [Elements](elements.md)
-* [State](state.md)
 
