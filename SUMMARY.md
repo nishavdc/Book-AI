@@ -8,7 +8,7 @@
 * [Unsupervised Learning](machine-learning/untitled-2.md)
 * [Deep Learning](machine-learning/deep-learning/README.md)
   * [Problems](machine-learning/deep-learning/problems/README.md)
-    * [Defect Detection](machine-learning/deep-learning/problems/defect-detection/README.md)
+    * [Object Detection](machine-learning/deep-learning/problems/defect-detection/README.md)
       * [Comparison](machine-learning/deep-learning/problems/defect-detection/comparison.md)
   * [Frameworks](machine-learning/deep-learning/frameworks/README.md)
     * [Pytorch](machine-learning/deep-learning/frameworks/pytorch.md)

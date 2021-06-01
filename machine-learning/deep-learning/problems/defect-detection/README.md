@@ -1,2 +1,2 @@
-# Defect Detection
+# Object Detection
 
