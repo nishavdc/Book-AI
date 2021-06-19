@@ -25,6 +25,7 @@
     * [Frameworks](machine-learning/deep-learning/computer-vision/frameworks/README.md)
       * [Pytorch](machine-learning/deep-learning/computer-vision/frameworks/pytorch.md)
       * [Tensorflow](machine-learning/deep-learning/computer-vision/frameworks/tensorflow/README.md)
+        * [Keras](machine-learning/deep-learning/computer-vision/frameworks/tensorflow/keras.md)
         * [TF Hub](machine-learning/deep-learning/computer-vision/frameworks/tensorflow/tf-hub.md)
 * [Reinforcement Learning](machine-learning/reinforcement-learning.md)
 * [Tiny ML](machine-learning/tiny-ml.md)
