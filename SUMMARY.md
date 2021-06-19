@@ -13,6 +13,7 @@
       * [Multi layer perceptron \(MLP\)](machine-learning/deep-learning/computer-vision/models/multi-layer-perceptron-mlp.md)
       * [Recurrent Neural Networks \(RNNs\)](machine-learning/deep-learning/computer-vision/models/recurrent-neural-networks-rnns.md)
     * [Problems](machine-learning/deep-learning/computer-vision/problems/README.md)
+      * [Image Classification](machine-learning/deep-learning/computer-vision/problems/image-classification.md)
       * [Object Detection](machine-learning/deep-learning/computer-vision/problems/defect-detection/README.md)
         * [Face Detection](machine-learning/deep-learning/computer-vision/problems/defect-detection/face-detection.md)
         * [Object Detection](machine-learning/deep-learning/computer-vision/problems/defect-detection/object-detection/README.md)
