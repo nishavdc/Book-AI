@@ -16,7 +16,7 @@ It takes two arguments:
    * To check out the different flag options, click [here](https://docs.opencv.org/master/d8/d6a/group__imgcodecs__flags.html#ga61d9b0126a3e57d9277ac48327799c80)
 
 {% hint style="warning" %}
-OpenCV reads color images in BGR ****format, whereas most other computer vision libraries use the RGB channel format order
+OpenCV reads color images in BGR _\*\*_format, whereas most other computer vision libraries use the RGB channel format order
 {% endhint %}
 
 {% tabs %}
@@ -85,20 +85,18 @@ destroyAllWindows();
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Display image - `imshow()`
 
 `imshow(window_name, image)`
 
 1. The first argument is the window name that will be displayed on the window.
-2.  The second argument is the image that you want to display. 
+2. The second argument is the image that you want to display. 
 
 To display multiple images at once, specify a new window name for every image you want to display.
 
-The `imshow()` function is designed to be used along  with the `waitKey()` and `destroyAllWindows()` / `destroyWindow()` functions. 
+The `imshow()` function is designed to be used along with the `waitKey()` and `destroyAllWindows()` / `destroyWindow()` functions.
 
-The `waitKey()` function is a keyboard-binding function. 
+The `waitKey()` function is a keyboard-binding function.
 
 * It takes a single argument, which is the **time \(in milliseconds\)**, for which the window will be displayed.
 * If the user presses any key within this time period, the program continues.
@@ -184,32 +182,32 @@ using namespace cv;
 
 int main()
 {
-	// Read the image using imread function
-	Mat image = imread("image.jpg");
-	imshow("Original Image", image);
+    // Read the image using imread function
+    Mat image = imread("image.jpg");
+    imshow("Original Image", image);
 
 
-	// let's downscale the image using new  width and height
-	int down_width = 300;
-	int down_height = 200;
-	Mat resized_down;
-	//resize down
-	resize(image, resized_down, Size(down_width, down_height), INTER_LINEAR);
-	// let's upscale the image using new  width and height
-	int up_width = 600;
-	int up_height = 400;
-	Mat resized_up;
-	//resize up
-	resize(image, resized_up, Size(up_width, up_height), INTER_LINEAR);
-	// Display Images and press any key to continue
-	imshow("Resized Down by defining height and width", resized_down);
-	waitKey();
-	imshow("Resized Up image by defining height and width", resized_up);
-	waitKey();
+    // let's downscale the image using new  width and height
+    int down_width = 300;
+    int down_height = 200;
+    Mat resized_down;
+    //resize down
+    resize(image, resized_down, Size(down_width, down_height), INTER_LINEAR);
+    // let's upscale the image using new  width and height
+    int up_width = 600;
+    int up_height = 400;
+    Mat resized_up;
+    //resize up
+    resize(image, resized_up, Size(up_width, up_height), INTER_LINEAR);
+    // Display Images and press any key to continue
+    imshow("Resized Down by defining height and width", resized_down);
+    waitKey();
+    imshow("Resized Up image by defining height and width", resized_up);
+    waitKey();
 
 
-	destroyAllWindows();
-	return 0;
+    destroyAllWindows();
+    return 0;
 }
 ```
 {% endtab %}
@@ -247,7 +245,7 @@ cout << "Original Height and Width :" << image.rows << "x" << image.cols << endl
 OpenCV outputs the shape of an image in ![height \* width \* channels ](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-29d033d57c7330f89d8885fbc83a9834_l3.png) format, whereas some other image-processing libraries give in the form of _**width, height, channels.**_ There’s a logical take to this.
 {% endhint %}
 
-> When images are read using OpenCV, they are represented as NumPy arrays. And in general, you always refer to the shape of an array, in terms of ![rows \* columns](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-9e8744fadcaf9eeeb4be4a5ac2edf8c3_l3.png) \(rows representing its height and the columns its width\). So, even when reading images with OpenCV to get their shape,  the same NumPy array rule comes into play. And  you get the shape in the form of ![height \* width \* channels](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-34e0ab84b7d34817c20bb347dfbf59e7_l3.png).
+> When images are read using OpenCV, they are represented as NumPy arrays. And in general, you always refer to the shape of an array, in terms of ![rows \* columns](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-9e8744fadcaf9eeeb4be4a5ac2edf8c3_l3.png) \(rows representing its height and the columns its width\). So, even when reading images with OpenCV to get their shape, the same NumPy array rule comes into play. And you get the shape in the form of ![height \* width \* channels](https://learnopencv.com/wp-content/ql-cache/quicklatex.com-34e0ab84b7d34817c20bb347dfbf59e7_l3.png).
 
 `resize(src, dsize[, dst[, fx[, fy[, interpolation]]]])`
 
@@ -307,7 +305,7 @@ Different interpolation methods are used for different resizing purposes.
 * **`INTER_LINEAR`**: This method is somewhat similar to the `INTER_CUBIC` interpolation. But unlike `INTER_CUBIC`, this uses 2×2 neighboring pixels to get the weighted average for the interpolated pixel.
 * **`INTER_NEAREST`**: The `INTER_NEAREST` method uses the nearest neighbor concept for interpolation. This is one of the simplest methods, using only one neighboring pixel from the image for interpolation.
 
-## Concatenation of images 
+## Concatenation of images
 
 {% tabs %}
 {% tab title="Python" %}
