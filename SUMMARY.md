@@ -29,6 +29,7 @@
         * [TF Hub](machine-learning/deep-learning/computer-vision/frameworks/tensorflow/tf-hub.md)
 * [Reinforcement Learning](machine-learning/reinforcement-learning.md)
 * [Tiny ML](machine-learning/tiny-ml.md)
+* [Graph neural network](machine-learning/graph-neural-network.md)
 
 ## Computer Vision
 
