@@ -16,7 +16,7 @@ It takes two arguments:
    * To check out the different flag options, click [here](https://docs.opencv.org/master/d8/d6a/group__imgcodecs__flags.html#ga61d9b0126a3e57d9277ac48327799c80)
 
 {% hint style="warning" %}
-OpenCV reads color images in BGR _\*\*_format, whereas most other computer vision libraries use the RGB channel format order
+OpenCV reads color images in BGR \_\*\*\_format, whereas most other computer vision libraries use the RGB channel format order
 {% endhint %}
 
 {% tabs %}
@@ -374,25 +374,25 @@ using namespace cv;
 
 int main()
 {
-	// Read image
-	Mat img = imread("test.jpg");
-	cout << "Width : " << img.size().width << endl;
-	cout << "Height: " << img.size().height << endl;
-	cout<<"Channels: :"<< img.channels() << endl;
-	// Crop image
-	Mat cropped_image = img(Range(80,280), Range(150,330));
+    // Read image
+    Mat img = imread("test.jpg");
+    cout << "Width : " << img.size().width << endl;
+    cout << "Height: " << img.size().height << endl;
+    cout<<"Channels: :"<< img.channels() << endl;
+    // Crop image
+    Mat cropped_image = img(Range(80,280), Range(150,330));
 
-	//display image
-	imshow(" Original Image", img);
-	imshow("Cropped Image", cropped_image);
+    //display image
+    imshow(" Original Image", img);
+    imshow("Cropped Image", cropped_image);
 
-	//Save the cropped Image
-	imwrite("Cropped Image.jpg", cropped_image);
+    //Save the cropped Image
+    imwrite("Cropped Image.jpg", cropped_image);
 
-	// 0 means loop infinitely
-	waitKey(0);
-	destroyAllWindows();
-	return 0;
+    // 0 means loop infinitely
+    waitKey(0);
+    destroyAllWindows();
+    return 0;
 }
 ```
 {% endtab %}
@@ -424,7 +424,7 @@ for y in range(0, imgheight, M):
     for x in range(0, imgwidth, N):
         if (imgheight - y) < M or (imgwidth - x) < N:
             break
-            
+
         y1 = y + M
         x1 = x + N
 
@@ -461,7 +461,7 @@ for y in range(0, imgheight, M):
 #Save full image into file directory
 cv2.imshow("Patched Image",img)
 cv2.imwrite("patched.jpg",img)
- 
+
 cv2.waitKey()
 cv2.destroyAllWindows()
 ```

@@ -212,7 +212,6 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * If you're more worried about some layers overfitting than others, you can set a lower `keep_prob` for some layers than others. The downside is, this gives you even more hyperparameters to search for using cross-validation. One other alternative might be to have some layers where you apply dropout and some layers where you don't apply dropout and then just have one hyperparameter, which is a `keep_prob` for the layers for which you do apply dropouts.
 * A lot of researchers are using dropout with Computer Vision \(CV\) because they have a very big input size and almost never have enough data, so overfitting is the usual problem. And dropout is a regularization technique to prevent overfitting.
 * A downside of dropout is that the cost function J is not well defined and it will be hard to debug \(plot J by iteration\).
-
   * To solve that you'll need to turn off dropout, set all the `keep_prob`s to 1, and then run the code and check that it monotonically decreases J and then turn on the dropouts again.
 
 ![Dropout](../../../.gitbook/assets/image.png)
@@ -258,7 +257,7 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 
 * The Vanishing / Exploding gradients occurs when your derivatives become very small or very big.
 * To understand the problem, suppose that we have a deep neural network with number of layers L, and all the activation functions are **linear** and each `b = 0`
-  * Then:   
+  * Then:
 
     ```text
     Y' = W[L]W[L-1].....W[2]W[1]X
@@ -291,19 +290,19 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * In a single neuron \(Perceptron model\): `Z = w1x1 + w2x2 + ... + wnxn`
   * So if `n_x` is large we want `W`'s to be smaller to not explode the cost.
 * So it turns out that we need the variance which equals `1/n_x` to be the range of `W`'s
-* So lets say when we initialize `W`'s like this \(better to use with `tanh` activation\):   
+* So lets say when we initialize `W`'s like this \(better to use with `tanh` activation\):
 
   ```text
   np.random.rand(shape) * np.sqrt(1/n[l-1])
   ```
 
-  or variation of this \(Bengio et al.\):   
+  or variation of this \(Bengio et al.\):
 
   ```text
   np.random.rand(shape) * np.sqrt(2/(n[l-1] + n[l]))
   ```
 
-* Setting initialization part inside sqrt to `2/n[l-1]` for `ReLU` is better:   
+* Setting initialization part inside sqrt to `2/n[l-1]` for `ReLU` is better:
 
   ```text
   np.random.rand(shape) * np.sqrt(2/n[l-1])
@@ -316,7 +315,7 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 ### Numerical approximation of gradients
 
 * There is an technique called gradient checking which tells you if your implementation of backpropagation is correct.
-* There's a numerical way to calculate the derivative:   
+* There's a numerical way to calculate the derivative:
 
   ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/03-_Numerical_approximation_of_gradients.png)
 
@@ -326,7 +325,7 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   * First take `W[1],b[1],...,W[L],b[L]` and reshape into one big vector \(`theta`\)
   * The cost function will be `J(theta)`
   * Then take `dW[1],db[1],...,dW[L],db[L]` into one big vector \(`d_theta`\)
-  * **Algorithm**:   
+  * **Algorithm**:
 
     ```text
     eps = 10^-7   # small number
@@ -441,13 +440,12 @@ Implications of L2-regularization on:
      * you have the vectorization advantage
      * make progress without waiting to process the entire training set
   2. doesn't always exactly converge \(oscelates in a very small region, but you can reduce learning rate\)
-* Guidelines for choosing mini-batch size:
-  1. If small training set \(&lt; 2000 examples\) - use batch gradient descent.
-  2. It has to be a power of 2 \(because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2\):
+* Guidelines for choosing mini-batch size: 1. If small training set \(&lt; 2000 examples\) - use batch gradient descent. 2. It has to be a power of 2 \(because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2\):
 
-     `64, 128, 256, 512, 1024, ...`
+  `64, 128, 256, 512, 1024, ...`
 
-  3. Make sure that mini-batch fits in CPU/GPU memory.
+  1. Make sure that mini-batch fits in CPU/GPU memory.
+
 * Mini-batch size is a `hyperparameter`.
 
 ### Exponentially weighted averages
@@ -487,17 +485,17 @@ Implications of L2-regularization on:
   * `beta = 0.5` will average last 2 entries
 * Best beta average for our case is between 0.9 and 0.98
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
-* Another imagery example:   
+* Another imagery example:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/Nasdaq1_small.png)   
+  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/Nasdaq1_small.png)
 
-    _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
+  _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
 
 ### Understanding exponentially weighted averages
 
-* Intuitions:   
+* Intuitions:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/05-_exponentially_weighted_averages_intuitions.png)
+  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/05-_exponentially_weighted_averages_intuitions.png)
 
 * We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
 * Algorithm is very simple:
@@ -565,11 +563,11 @@ Implications of L2-regularization on:
 
 * RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/06-_RMSprop.png)
+  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/06-_RMSprop.png)
 
-* Ensure that `sdW` is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:   
+* Ensure that `sdW` is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
 
-   `W = W - learning_rate * dW / (sqrt(sdW) + epsilon)`
+  `W = W - learning_rate * dW / (sqrt(sdW) + epsilon)`
 
 * With RMSprop you can increase your learning rate.
 * Developed by Geoffrey Hinton and firstly introduced on [Coursera.org](https://www.coursera.org/) course.
@@ -713,7 +711,7 @@ Implications of L2-regularization on:
 
 * Using batch norm in 3 hidden layers NN:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/bn.png)
+  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/bn.png)
 
 * Our NN parameters will be:
   * `W[1]`, `b[1]`, ..., `W[L]`, `b[L]`, `beta[1]`, `gamma[1]`, ..., `beta[L]`, `gamma[L]`
@@ -817,7 +815,7 @@ Implications of L2-regularization on:
 
 * Example:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/07-_softmax.png)
+  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/07-_softmax.png)
 
 ### Deep learning frameworks
 
@@ -874,8 +872,8 @@ for i in range(1000):
 
 print("W after 1000 iterations:", session.run(w))
 ```
-```
 
+```text
 * Code v.2 \(we feed the inputs to the algorithm through coefficients\):
 
   \`\`\`python import numpy as np import tensorflow as tf
@@ -902,8 +900,8 @@ for i in range(1000):
 
 print("W after 1000 iterations:", session.run(w))
 ```
-```
 
+```text
 * In TensorFlow you implement only the forward propagation and TensorFlow will do the backpropagation by itself.
 * In TensorFlow a placeholder is a variable you can assign a value to later.
 * If you are using a mini-batch training you should change the `feed_dict={x: coefficients}` to the current mini-batch data.
@@ -913,21 +911,16 @@ print("W after 1000 iterations:", session.run(w))
   with tf.Session() as session:       # better for cleaning up in case of error/exception
       session.run(init)
       session.run(w)
-  ```
+```
 
 * In deep learning frameworks there are a lot of things that you can do with one line of code like changing the optimizer.
 
   _**Side notes:**_
 
-* Writing and running programs in TensorFlow has the following steps:
-  1. Create Tensors \(variables\) that are not yet executed/evaluated.
-  2. Write operations between those Tensors.
-  3. Initialize your Tensors.
-  4. Create a Session.
-  5. Run the Session. This will run the operations you'd written above.
+* Writing and running programs in TensorFlow has the following steps: 1. Create Tensors \(variables\) that are not yet executed/evaluated. 2. Write operations between those Tensors. 3. Initialize your Tensors. 4. Create a Session. 5. Run the Session. This will run the operations you'd written above.
 * Instead of needing to write code to compute the cost function we know, we can use this line in TensorFlow :
 
-  `tf.nn.sigmoid_cross_entropy_with_logits(logits = ...,  labels = ...)`
+  `tf.nn.sigmoid_cross_entropy_with_logits(logits = ..., labels = ...)`
 
 * To initialize weights in NN using TensorFlow use:
 
@@ -948,9 +941,5 @@ print("W after 1000 iterations:", session.run(w))
   * First one to win ImageNet
   * Works in PaddlePaddle deep learning platform.
 
-  
-  
-   
-  
- These Notes were made by [Mahmoud Badry](mailto:mma18@fayoum.edu.eg) @2017
+These Notes were made by [Mahmoud Badry](mailto:mma18@fayoum.edu.eg) @2017
 
