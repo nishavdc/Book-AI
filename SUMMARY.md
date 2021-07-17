@@ -7,6 +7,7 @@
 * [Supervised Learning](machine-learning/untitled-1.md)
 * [Unsupervised Learning](machine-learning/untitled-2.md)
 * [Deep Learning](machine-learning/deep-learning/README.md)
+  * [Neural Networks and Deep Learning](machine-learning/deep-learning/neural-networks-and-deep-learning.md)
   * [Computer Vision](machine-learning/deep-learning/computer-vision/README.md)
     * [Models](machine-learning/deep-learning/computer-vision/models/README.md)
       * [CNN](machine-learning/deep-learning/computer-vision/models/cnn.md)
