@@ -122,8 +122,6 @@ Here are the course summary as its given on the course [link](https://www.course
   * Creative algorithms has appeared that changed the way NN works.
     * For example using RELU function is so much better than using SIGMOID function in training a NN because it helps with the vanishing gradient problem.
 
-  ​
-
 ## Neural Networks Basics
 
 > Learn to set up a machine learning problem with a neural network mindset. Learn to use vectorization to speed up your models.
