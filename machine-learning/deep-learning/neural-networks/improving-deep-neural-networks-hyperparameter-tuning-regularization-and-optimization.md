@@ -229,7 +229,7 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   * In this technique we plot the training set and the dev set cost together for each iteration. At some iteration the dev set cost will stop decreasing and will start increasing.
   * We will pick the point at which the training set error and dev set error are best \(lowest training cost with lowest dev cost\).
   * We will take these parameters as the best parameters.
-    * ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/02-_Early_stopping.png)
+    * ![](Images/02-_Early_stopping.png)
   * Andrew prefers to use L2 regularization instead of early stopping because this technique simultaneously tries to minimize the cost function and not to overfit which contradicts the orthogonalization approach \(will be discussed further\).
   * But its advantage is that you don't need to search a hyperparameter like in other regularization approaches \(like `lambda` in L2 regularization\).
 * **Model Ensembles**:
@@ -318,7 +318,7 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * There is an technique called gradient checking which tells you if your implementation of backpropagation is correct.
 * There's a numerical way to calculate the derivative:   
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/03-_Numerical_approximation_of_gradients.png)
+  ![](Images/03-_Numerical_approximation_of_gradients.png)
 
 * Gradient checking approximates the gradients and is very helpful for finding the errors in your backpropagation implementation but it's slower than gradient descent \(so use only for debugging\).
 * Implementation of this is very simple.
@@ -424,7 +424,7 @@ Implications of L2-regularization on:
 
 * In mini-batch algorithm, the cost won't go down with each step as it does in batch algorithm. It could contain some ups and downs but generally it has to go down \(unlike the batch gradient descent where cost function descreases on each iteration\).
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/04-_batch_vs_mini_batch_cost.png)
+  ![](Images/04-_batch_vs_mini_batch_cost.png)
 
 * Mini-batch size:
   * \(`mini batch size = m`\)  ==&gt;    Batch gradient descent
@@ -489,7 +489,7 @@ Implications of L2-regularization on:
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
 * Another imagery example:   
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/Nasdaq1_small.png)   
+    ![](Images/Nasdaq1_small.png)   
 
     _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
 
@@ -497,7 +497,7 @@ Implications of L2-regularization on:
 
 * Intuitions:   
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/05-_exponentially_weighted_averages_intuitions.png)
+    ![](Images/05-_exponentially_weighted_averages_intuitions.png)
 
 * We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
 * Algorithm is very simple:
@@ -565,7 +565,7 @@ Implications of L2-regularization on:
 
 * RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/06-_RMSprop.png)
+    ![](Images/06-_RMSprop.png)
 
 * Ensure that `sdW` is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:   
 
@@ -713,7 +713,7 @@ Implications of L2-regularization on:
 
 * Using batch norm in 3 hidden layers NN:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/bn.png)
+    ![](Images/bn.png)
 
 * Our NN parameters will be:
   * `W[1]`, `b[1]`, ..., `W[L]`, `b[L]`, `beta[1]`, `gamma[1]`, ..., `beta[L]`, `gamma[L]`
@@ -817,7 +817,7 @@ Implications of L2-regularization on:
 
 * Example:
 
-    ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/07-_softmax.png)
+    ![](Images/07-_softmax.png)
 
 ### Deep learning frameworks
 
