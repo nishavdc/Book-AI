@@ -286,14 +286,14 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * So If W &gt; I \(Identity matrix\) the activation and gradients will explode.
 * And If W &lt; I \(Identity matrix\) the activation and gradients will vanish.
 * Recently Microsoft trained 152 layers \(ResNet\)! which is a really big number. With such a deep neural network, if your activations or gradients increase or decrease exponentially as a function of L, then these values could get really big or really small. And this makes training difficult, especially if your gradients are exponentially smaller than L, then gradient descent will take tiny little steps. It will take a long time for gradient descent to learn anything.
-* There is a partial solution that doesn't completely solve this problem but it helps a lot - careful choice of how you initialize the weights \(next video\).
+* There is a partial solution that doesn't completely solve this problem but it helps a lot - careful choice of how you initialize the weights.
 
 ### Weight Initialization for Deep Networks
 
 * A partial solution to the Vanishing / Exploding gradients in NN is better or more careful choice of the random initialization of weights
 * In a single neuron \(Perceptron model\): `Z = w1x1 + w2x2 + ... + wnxn`
   * So if `n_x` is large we want `W`'s to be smaller to not explode the cost.
-* So it turns out that we need the variance which equals `1/n_x` to be the range of `W`'s
+* So we need `W`'s to have variance of `1/n_x`
 * So lets say when we initialize `W`'s like this \(better to use with `tanh` activation\):
 
   ```text
