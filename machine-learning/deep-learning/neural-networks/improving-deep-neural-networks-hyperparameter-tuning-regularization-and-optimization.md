@@ -297,7 +297,7 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * So lets say when we initialize `W`'s like this \(better to use with `tanh` activation\):
 
   ```text
-  np.random.rand(shape) * np.sqrt(1/n[l-1])
+  np.random.rand(shape) * np.sqrt(1/n[l-1]) # Xavier initialization
   ```
 
   or variation of this \(Bengio et al.\):
