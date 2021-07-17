@@ -110,8 +110,6 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ![Bias/Variance](../../../.gitbook/assets/c2w1l02s2%20%281%29.jpg)
 
-![Bias and Variance](../../../.gitbook/assets/c2w1l02s2.jpg)
-
 ### Basic Recipe for Machine Learning
 
 * If your algorithm has a high bias:
