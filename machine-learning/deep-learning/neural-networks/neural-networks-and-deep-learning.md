@@ -80,15 +80,17 @@ Here are the course summary as its given on the course [link](https://www.course
 * If we apply sigmoid activation function then Single neuron will act as Logistic Regression.
 * we can understand difference between perceptron and sigmoid function by looking at sigmoid function graph.
 * Simple NN graph:
-  * ![](../../deep-learning/Images/Others/01.jpg)
-  * Image taken from [tutorialspoint.com](http://www.tutorialspoint.com/)
+  * * Image taken from [tutorialspoint.com](http://www.tutorialspoint.com/)
 * RELU stands for rectified linear unit is the most popular activation function right now that makes deep NNs train faster now.
 * Hidden layers predicts connection between inputs automatically, thats what deep learning is good at.
 * Deep NN consists of more hidden layers \(Deeper layers\)
-  * ![](../../deep-learning/Images/Others/02.png)
-  * Image taken from [opennn.net](http://www.opennn.net/)
+  * * Image taken from [opennn.net](http://www.opennn.net/)
 * Each Input will be connected to the hidden layer and the NN will decide the connections.
 * Supervised learning means we have the \(X,Y\) and we need to get the function that maps X to Y.
+
+![](../../../.gitbook/assets/01.jpg)
+
+![](../../../.gitbook/assets/02.png)
 
 ### Supervised learning with neural networks
 
@@ -105,7 +107,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * Deep learning is taking off for 3 reasons: 1. Data:
   * Using this image we can conclude:
-    * ![](../../deep-learning/Images/11.png)
+    * 
   * For small data NN can perform as Linear regression or SVM \(Support vector machine\)
   * For big data a small NN is better that SVM
   * For big data a big NN is better that a medium NN is better that small NN.
@@ -121,6 +123,8 @@ Here are the course summary as its given on the course [link](https://www.course
   * Creative algorithms has appeared that changed the way NN works.
     * For example using RELU function is so much better than using SIGMOID function in training a NN because it helps with the vanishing gradient problem.
 
+![](../../../.gitbook/assets/11.png)
+
 ## Neural Networks Basics
 
 > Learn to set up a machine learning problem with a neural network mindset. Learn to use vectorization to speed up your models.
@@ -128,8 +132,7 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Binary classification
 
 * Mainly he is talking about how to do a logistic regression to make a binary classifier.
-  * ![log](../../deep-learning/Images/Others/03.png)
-  * Image taken from [3.bp.blogspot.com](http://3.bp.blogspot.com)
+  * * Image taken from [3.bp.blogspot.com](http://3.bp.blogspot.com)
 * He talked about an example of knowing if the current image contains a cat or not.
 * Here are some notations:
   * `M is the number of training vectors`
@@ -141,6 +144,8 @@ Here are the course summary as its given on the course [link](https://www.course
   * `Y = (y(1) y(2).. y(M))`
 * We will use python in this course.
 * In NumPy we can make matrices and make operations on them in a fast and reliable time.
+
+![log](../../../.gitbook/assets/03%20%281%29.png)
 
 ### Logistic regression
 
@@ -215,14 +220,18 @@ Here are the course summary as its given on the course [link](https://www.course
   Then `d(z)/d(x) = d(z)/d(y) * d(y)/d(x)`
 
 * The video illustrates a big example.
-  * ![](../../deep-learning/Images/03.png)
+  * 
 * We compute the derivatives on a graph from right to left and it will be a lot more easier.
 * `dvar` means the derivatives of a final output variable with respect to various intermediate quantities.
+
+![](../../../.gitbook/assets/03.png)
 
 ### Logistic Regression Gradient Descent
 
 * In the video he discussed the derivatives of gradient decent example for one sample with two features `x1` and `x2`.
-  * ![](../../deep-learning/Images/04.png)
+  * 
+
+![](../../../.gitbook/assets/04.png)
 
 ### Gradient Descent on m Examples
 
@@ -238,7 +247,7 @@ Here are the course summary as its given on the course [link](https://www.course
       Y(i)                Expected output of i
   ```
 
-* So we have: ![](../../deep-learning/Images/09.png)
+* So we have: ![](../../../.gitbook/assets/09.png)
 * Then from right to left we will calculate derivations compared to the result:
 
   ```text
@@ -396,7 +405,7 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Computing a Neural Network's Output
 
 * Equations of Hidden layers:
-  * ![](../../deep-learning/Images/05.png)
+  * 
 * Here are some informations about the last image:
   * `noOfHiddenNeurons = 4`
   * `Nx = 3`
@@ -409,6 +418,8 @@ Here are the course summary as its given on the course [link](https://www.course
     * `b2` is the matrix of the second hidden layer, it has a shape of `(noOfHiddenNeuronsCurrent,1)`
     * `z2` is the result of the equation `z2 = W2*a1 + b`, it has a shape of `(noOfHiddenNeuronsCurrent,1)`
     * `a2` is the result of the equation `a2 = sigmoid(z2)`, it has a shape of `(noOfHiddenNeuronsCurrent,1)`
+
+![](../../../.gitbook/assets/05.png)
 
 ### Vectorizing across multiple examples
 
@@ -560,7 +571,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * How we derived the 6 equations of the backpropagation:
 
-  ![](../../deep-learning/Images/06.png)
+![](../../../.gitbook/assets/06.png)
 
 ### Random Initialization
 
@@ -637,15 +648,21 @@ Here are the course summary as its given on the course [link](https://www.course
     * Audio ==&gt; Low level sound features like \(sss,bb\) ==&gt; Phonemes ==&gt; Words ==&gt; Sentences
 * Neural Researchers think that deep neural networks "think" like brains \(simple ==&gt; complex\)
 * Circuit theory and deep learning:
-  * ![](../../deep-learning/Images/07.png)
+  * 
 * When starting on an application don't start directly by dozens of hidden layers. Try the simplest solutions \(e.g. Logistic Regression\), then try the shallow neural network and so on.
+
+![](../../../.gitbook/assets/07.png)
 
 ### Building blocks of deep neural networks
 
 * Forward and back propagation for a layer l:
-  * ![Untitled](../../deep-learning/Images/10.png)
+  * 
 * Deep NN blocks:
-  * ![](../../deep-learning/Images/08.png)
+  * 
+
+![](../../../.gitbook/assets/08.png)
+
+![Untitled](../../../.gitbook/assets/10.png)
 
 ### Forward and Backward Propagation
 
