@@ -251,8 +251,11 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   4. Normalize the variance. `X /= variance`
 * These steps should be applied to training, dev, and testing sets \(but using mean and variance of the train set\).
 * Why normalize?
+
   * If we don't normalize the inputs our cost function will be deep and its shape will be inconsistent \(elongated\) then optimizing it will take a long time.
   * But if we normalize it the opposite will occur. The shape of the cost function will be consistent \(look more symmetric like circle in 2D example\) and we can use a larger learning rate alpha - the optimization will be faster.
+
+![](../../../.gitbook/assets/image%20%281%29.png)
 
 ### Vanishing / Exploding gradients
 
