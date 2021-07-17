@@ -80,12 +80,12 @@ Here are the course summary as its given on the course [link](https://www.course
 * If we apply sigmoid activation function then Single neuron will act as Logistic Regression.
 * we can understand difference between perceptron and sigmoid function by looking at sigmoid function graph.
 * Simple NN graph:
-  * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/Others/01.jpg)
+  * ![](../../deep-learning/Images/Others/01.jpg)
   * Image taken from [tutorialspoint.com](http://www.tutorialspoint.com/)
 * RELU stands for rectified linear unit is the most popular activation function right now that makes deep NNs train faster now.
 * Hidden layers predicts connection between inputs automatically, thats what deep learning is good at.
 * Deep NN consists of more hidden layers \(Deeper layers\)
-  * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/Others/02.png)
+  * ![](../../deep-learning/Images/Others/02.png)
   * Image taken from [opennn.net](http://www.opennn.net/)
 * Each Input will be connected to the hidden layer and the NN will decide the connections.
 * Supervised learning means we have the \(X,Y\) and we need to get the function that maps X to Y.
@@ -105,7 +105,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * Deep learning is taking off for 3 reasons: 1. Data:
   * Using this image we can conclude:
-    * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/11.png)
+    * ![](../../deep-learning/Images/11.png)
   * For small data NN can perform as Linear regression or SVM \(Support vector machine\)
   * For big data a small NN is better that SVM
   * For big data a big NN is better that a medium NN is better that small NN.
@@ -128,7 +128,7 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Binary classification
 
 * Mainly he is talking about how to do a logistic regression to make a binary classifier.
-  * ![log](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/Others/03.png)
+  * ![log](../../deep-learning/Images/Others/03.png)
   * Image taken from [3.bp.blogspot.com](http://3.bp.blogspot.com)
 * He talked about an example of knowing if the current image contains a cat or not.
 * Here are some notations:
@@ -215,14 +215,14 @@ Here are the course summary as its given on the course [link](https://www.course
   Then `d(z)/d(x) = d(z)/d(y) * d(y)/d(x)`
 
 * The video illustrates a big example.
-  * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/03.png)
+  * ![](../../deep-learning/Images/03.png)
 * We compute the derivatives on a graph from right to left and it will be a lot more easier.
 * `dvar` means the derivatives of a final output variable with respect to various intermediate quantities.
 
 ### Logistic Regression Gradient Descent
 
 * In the video he discussed the derivatives of gradient decent example for one sample with two features `x1` and `x2`.
-  * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/04.png)
+  * ![](../../deep-learning/Images/04.png)
 
 ### Gradient Descent on m Examples
 
@@ -238,7 +238,7 @@ Here are the course summary as its given on the course [link](https://www.course
       Y(i)                Expected output of i
   ```
 
-* So we have: ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/09.png)
+* So we have: ![](../../deep-learning/Images/09.png)
 * Then from right to left we will calculate derivations compared to the result:
 
   ```text
@@ -396,7 +396,7 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Computing a Neural Network's Output
 
 * Equations of Hidden layers:
-  * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/05.png)
+  * ![](../../deep-learning/Images/05.png)
 * Here are some informations about the last image:
   * `noOfHiddenNeurons = 4`
   * `Nx = 3`
@@ -560,7 +560,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * How we derived the 6 equations of the backpropagation:
 
-  ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/06.png)
+  ![](../../deep-learning/Images/06.png)
 
 ### Random Initialization
 
@@ -637,15 +637,15 @@ Here are the course summary as its given on the course [link](https://www.course
     * Audio ==&gt; Low level sound features like \(sss,bb\) ==&gt; Phonemes ==&gt; Words ==&gt; Sentences
 * Neural Researchers think that deep neural networks "think" like brains \(simple ==&gt; complex\)
 * Circuit theory and deep learning:
-  * ![](https://github.com/niluwin/Book-AI/tree/54a3c0bb41d186d911b3f2309c6949ce1ac8182c/machine-learning/deep-learning/Images/07.png)
+  * ![](../../deep-learning/Images/07.png)
 * When starting on an application don't start directly by dozens of hidden layers. Try the simplest solutions \(e.g. Logistic Regression\), then try the shallow neural network and so on.
 
 ### Building blocks of deep neural networks
 
 * Forward and back propagation for a layer l:
-  * ![Untitled](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/10.png)
+  * ![Untitled](../../deep-learning/Images/10.png)
 * Deep NN blocks:
-  * ![](https://github.com/niluwin/Book-AI/tree/11a6540ab73da877915e21378448ea24a0b06328/machine-learning/deep-learning/deep-learning/Images/08.png)
+  * ![](../../deep-learning/Images/08.png)
 
 ### Forward and Backward Propagation
 
