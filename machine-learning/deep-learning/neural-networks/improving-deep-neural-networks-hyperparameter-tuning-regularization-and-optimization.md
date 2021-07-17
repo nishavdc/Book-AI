@@ -197,7 +197,10 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
   ```
 
 * Vector d\[l\] is used for forward and back propagation and is the same for them, but it is different for each iteration \(pass\) or training example.
-* At test time we don't use dropout. If you implement dropout at test time - it would add noise to predictions.
+
+{% hint style="danger" %}
+At test time we don't use dropout. If you implement dropout at test time - it would add noise to predictions.
+{% endhint %}
 
 ### Understanding Dropout
 
