@@ -318,9 +318,8 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 
 ### Numerical approximation of gradients
 
-* There is an technique called gradient checking which tells you if your implementation of backpropagation is correct.
+* There is an technique called **gradient checking** which tells you if your implementation of backpropagation is correct.
 * There's a numerical way to calculate the derivative:
-
 * Gradient checking approximates the gradients and is very helpful for finding the errors in your backpropagation implementation but it's slower than gradient descent \(so use only for debugging\).
 * Implementation of this is very simple.
 * Gradient checking:
