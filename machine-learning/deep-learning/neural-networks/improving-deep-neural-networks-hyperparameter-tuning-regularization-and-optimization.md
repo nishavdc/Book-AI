@@ -351,13 +351,19 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   * You can first turn off dropout \(set `keep_prob = 1.0`\), run gradient checking and then turn on dropout again.
 * Run gradient checking at random initialization and train the network for a while maybe there's a bug which can be seen when w's and b's become larger \(further from 0\) and can't be seen on the first iteration \(when w's and b's are very small\).
 
+![](../../../.gitbook/assets/image%20%284%29.png)
+
+![](../../../.gitbook/assets/image%20%283%29.png)
+
+![](../../../.gitbook/assets/image%20%282%29.png)
+
 ### Initialization summary
 
 * The weights W\[l\] should be initialized randomly to break symmetry
 * It is however okay to initialize the biases b\[l\] to zeros. Symmetry is still broken so long as W\[l\] is initialized randomly
 * Different initializations lead to different results
 * Random initialization is used to break symmetry and make sure different hidden units can learn different things
-* Don't intialize to values that are too large
+* Don't initialize to values that are too large
 * He initialization works well for networks with ReLU activations.
 
 ### Regularization summary
