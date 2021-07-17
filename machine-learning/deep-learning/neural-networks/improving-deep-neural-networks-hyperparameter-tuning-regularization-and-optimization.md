@@ -212,7 +212,10 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * If you're more worried about some layers overfitting than others, you can set a lower `keep_prob` for some layers than others. The downside is, this gives you even more hyperparameters to search for using cross-validation. One other alternative might be to have some layers where you apply dropout and some layers where you don't apply dropout and then just have one hyperparameter, which is a `keep_prob` for the layers for which you do apply dropouts.
 * A lot of researchers are using dropout with Computer Vision \(CV\) because they have a very big input size and almost never have enough data, so overfitting is the usual problem. And dropout is a regularization technique to prevent overfitting.
 * A downside of dropout is that the cost function J is not well defined and it will be hard to debug \(plot J by iteration\).
+
   * To solve that you'll need to turn off dropout, set all the `keep_prob`s to 1, and then run the code and check that it monotonically decreases J and then turn on the dropouts again.
+
+![Dropout](../../../.gitbook/assets/image.png)
 
 ### Other regularization methods
 
