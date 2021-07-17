@@ -104,7 +104,6 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Why is deep learning taking off?
 
 * Deep learning is taking off for 3 reasons: 1. Data:
-
   * Using this image we can conclude:
     * ![](https://github.com/niluwin/Book-AI/tree/54a3c0bb41d186d911b3f2309c6949ce1ac8182c/machine-learning/deep-learning/Images/11.png)
   * For small data NN can perform as Linear regression or SVM \(Support vector machine\)
@@ -211,7 +210,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * Calculus chain rule says:
 
-  If `x -> y -> z`          \(x effect y and y effects z\)
+  If `x -> y -> z` \(x effect y and y effects z\)
 
   Then `d(z)/d(x) = d(z)/d(y) * d(y)/d(x)`
 
@@ -464,7 +463,7 @@ Here are the course summary as its given on the course [link](https://www.course
 * So here is some basic rule for choosing activation functions, if your classification is between 0 and 1, use the output activation as sigmoid and the others as RELU.
 * Leaky RELU activation function different of RELU is that if the input is negative the slope will be so small. It works as RELU but most people uses RELU.
 
-  `Leaky_RELU = max(0.01z,z)  #the 0.01 can be a parameter for your algorithm.`
+  `Leaky_RELU = max(0.01z,z) #the 0.01 can be a parameter for your algorithm.`
 
 * In NN you will decide a lot of choices like:
   * No of hidden layers.
@@ -559,7 +558,7 @@ Here are the course summary as its given on the course [link](https://www.course
   # Hint there are transposes with multiplication because to keep dimensions correct
   ```
 
-* How we derived the 6 equations of the backpropagation:   
+* How we derived the 6 equations of the backpropagation:
 
   ![](https://github.com/niluwin/Book-AI/tree/54a3c0bb41d186d911b3f2309c6949ce1ac8182c/machine-learning/deep-learning/Images/06.png)
 
@@ -709,9 +708,5 @@ Here are the course summary as its given on the course [link](https://www.course
 * Ian tells all who wants to get into AI to get a Ph.D. or post your code on Github and the companies will find you.
 * Ian thinks that we need to start anticipating security problems with ML now and make sure that these algorithms are secure from the start instead of trying to patch it in retroactively years later.
 
-  
-  
-   
-  
- These Notes were made by [Mahmoud Badry](mailto:mma18@fayoum.edu.eg) @2017
+These Notes were made by [Mahmoud Badry](mailto:mma18@fayoum.edu.eg) @2017
 

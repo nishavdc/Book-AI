@@ -108,26 +108,28 @@ Here are the course summary as its given on the course [link](https://www.course
     * Test error: 1%
   * These Assumptions came from that human has 0% error. If the problem isn't like that you'll need to use human error as baseline.
 
+![Bias/Variance](../../../.gitbook/assets/c2w1l02s2%20%281%29.jpg)
+
 ![Bias and Variance](../../../.gitbook/assets/c2w1l02s2.jpg)
 
 ### Basic Recipe for Machine Learning
 
 * If your algorithm has a high bias:
-  * Check training performance
+  * Look at the training data performance.
   * Try to make your NN bigger \(size of hidden units, number of layers\)
-  * Try a different model that is suitable for your data \(neural architecture search\).
+  * Try a different model that is suitable for your data \(NN architecture search\).
   * Try to run it longer.
   * Different \(advanced\) optimization algorithms.
 * If your algorithm has a high variance:
-  * Check dev set performance
+  * Look at the dev set performance.
   * More data.
   * Try regularization.
-  * Try a different model that is suitable for your data \(neural architecture search\).
-
-    .
+  * Try a different model that is suitable for your data \(NN architecture search\)
 * You should try the previous two points until you have a low bias and low variance.
 * In the older days before deep learning, there was a "Bias/variance tradeoff". But because now you have more options/tools for solving the bias and variance problem its really helpful to use deep learning.
 * Training a bigger neural network never hurts.
+
+{% file src="../../../.gitbook/assets/c2w1l03.pdf" caption="Lecture Notes" %}
 
 ### Regularization
 
