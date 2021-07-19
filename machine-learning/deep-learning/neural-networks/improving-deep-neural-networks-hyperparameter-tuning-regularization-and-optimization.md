@@ -437,16 +437,17 @@ Implications of L2-regularization on:
   * \(`mini batch size = 1`\)  ==&gt;    Stochastic gradient descent \(SGD\)
   * \(`mini batch size = between 1 and m`\) ==&gt;    Mini-batch gradient descent
 * Batch gradient descent:
+  * Takes relatively low noise, large steps to reach minimum
   * too long per iteration \(epoch\)
 * Stochastic gradient descent:
-  * too noisy regarding cost minimization \(can be reduced by using smaller learning rate\)
-  * won't ever converge \(reach the minimum cost\)
-  * lose speedup from vectorization
+  * Too noisy to reach minimum \(can be reduced by using smaller learning rate\)
+  * won't ever converge \(Reaches only near to minimum point\)
+  * lose speedup advantages of vectorization
 * Mini-batch gradient descent:
   1. faster learning:
      * you have the vectorization advantage
      * make progress without waiting to process the entire training set
-  2. doesn't always exactly converge \(oscelates in a very small region, but you can reduce learning rate\)
+  2. doesn't always exactly converge \(oscillates in a very small region, but you can reduce learning rate\)
 * Guidelines for choosing mini-batch size: 1. If small training set \(&lt; 2000 examples\) - use batch gradient descent. 2. It has to be a power of 2 \(because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2\):
 
   `64, 128, 256, 512, 1024, ...`
@@ -495,6 +496,8 @@ Implications of L2-regularization on:
 * Best beta average for our case is between 0.9 and 0.98
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
 * Another imagery example:
+
+
 
   _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
 
