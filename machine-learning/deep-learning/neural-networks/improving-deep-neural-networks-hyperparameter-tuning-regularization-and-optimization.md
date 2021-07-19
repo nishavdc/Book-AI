@@ -620,8 +620,8 @@ Implications of L2-regularization on:
 
 * Hyperparameters for Adam:
   * Learning rate: needed to be tuned.
-  * `beta1`: parameter of the momentum - `0.9` is recommended by default.
-  * `beta2`: parameter of the RMSprop - `0.999` is recommended by default.
+  * `beta1`: parameter of the momentum, `0.9` is recommended by default.
+  * `beta2`: parameter of the RMSprop, `0.999` is recommended by default.
   * `epsilon`: `10^-8` is recommended by default.
 
 ### Learning rate decay
