@@ -37,7 +37,7 @@ model.add(Dense(5, input_dim=2))
 model.add(Dense(1))
 ```
 
-Think of a Sequential model as a pipeline with your raw data fed in at the bottom and predictions that come out at the top.
+Think of a Sequential model as a pipeline with your raw data fed in at the bottom and predictions that come out at the top. 
 
 This is a helpful conception in Keras as components that were traditionally associated with a layer can also be split out and added as separate layers, clearly showing their role in the transform of data from input to prediction.
 

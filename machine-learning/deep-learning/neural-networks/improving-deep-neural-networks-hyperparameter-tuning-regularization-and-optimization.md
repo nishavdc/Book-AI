@@ -435,25 +435,29 @@ Implications of L2-regularization on:
   * \(`mini batch size = 1`\)  ==&gt;    Stochastic gradient descent \(SGD\)
   * \(`mini batch size = between 1 and m`\) ==&gt;    Mini-batch gradient descent
 * Batch gradient descent:
+  * Takes relatively low noise, large steps to reach minimum
   * too long per iteration \(epoch\)
 * Stochastic gradient descent:
-  * too noisy regarding cost minimization \(can be reduced by using smaller learning rate\)
-  * won't ever converge \(reach the minimum cost\)
-  * lose speedup from vectorization
+  * Too noisy to reach minimum \(can be reduced by using smaller learning rate\)
+  * won't ever converge \(Reaches only near to minimum point\)
+  * lose speedup advantages of vectorization
 * Mini-batch gradient descent:
   1. faster learning:
      * you have the vectorization advantage
      * make progress without waiting to process the entire training set
-  2. doesn't always exactly converge \(oscelates in a very small region, but you can reduce learning rate\)
-* Guidelines for choosing mini-batch size: 1. If small training set \(&lt; 2000 examples\) - use batch gradient descent. 2. It has to be a power of 2 \(because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2\):
+  2. doesn't always exactly converge \(oscillates in a very small region, but you can reduce learning rate\)
+* Guidelines for choosing mini-batch size: 
+  *  If small training set \(&lt; 2000 examples\) - use batch gradient descent. Otherwise,
+  * It has to be a power of 2 \(because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2\):
 
-  `64, 128, 256, 512, 1024, ...`
+    `64, 128, 256, 512, 1024, ...`
 
-  1. Make sure that mini-batch fits in CPU/GPU memory.
-
-* Mini-batch size is a `hyperparameter`.
+    * Make sure that mini-batch fits in CPU/GPU memory.
+* Mini-batch size is a `hyperparameter`
 
 ![](../../../.gitbook/assets/04-_batch_vs_mini_batch_cost.png)
+
+![](../../../.gitbook/assets/image%20%285%29.png)
 
 ### Exponentially weighted averages
 
@@ -486,13 +490,15 @@ Implications of L2-regularization on:
   V(t) = beta * v(t-1) + (1-beta) * theta(t)
   ```
 
-* If we plot this it will represent averages over `~ (1 / (1 - beta))` entries:
+* If we plot this it will represent averages over `~ (1 / (1 - beta))` entries\(t's\):
   * `beta = 0.9` will average last 10 entries
   * `beta = 0.98` will average last 50 entries
   * `beta = 0.5` will average last 2 entries
 * Best beta average for our case is between 0.9 and 0.98
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
 * Another imagery example:
+
+
 
   _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
 
@@ -501,17 +507,17 @@ Implications of L2-regularization on:
 ### Understanding exponentially weighted averages
 
 * Intuitions:
-* We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
-* Algorithm is very simple:
+  * We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
+  * Algorithm is very simple:
 
-  ```text
-  v = 0
-  Repeat
-  {
-      Get theta(t)
-      v = beta * v + (1-beta) * theta(t)
-  }
-  ```
+    ```text
+    v = 0
+    Repeat
+    {
+        Get theta(t)
+        v = beta * v + (1-beta) * theta(t)
+    }
+    ```
 
 ![](../../../.gitbook/assets/05-_exponentially_weighted_averages_intuitions.png)
 
@@ -549,6 +555,8 @@ Implications of L2-regularization on:
 * `beta` is another `hyperparameter`. `beta = 0.9` is very common and works very well in most cases.
 * In practice people don't bother implementing **bias correction**.
 
+![](../../../.gitbook/assets/image%20%286%29.png)
+
 ### RMSprop
 
 * Stands for **Root mean square prop**.
@@ -568,7 +576,8 @@ Implications of L2-regularization on:
   ```
 
 * RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
-* Ensure that `sdW` is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
+
+* Ensure that `sdW` , `sdb`is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
 
   `W = W - learning_rate * dW / (sqrt(sdW) + epsilon)`
 
@@ -609,8 +618,8 @@ Implications of L2-regularization on:
 
 * Hyperparameters for Adam:
   * Learning rate: needed to be tuned.
-  * `beta1`: parameter of the momentum - `0.9` is recommended by default.
-  * `beta2`: parameter of the RMSprop - `0.999` is recommended by default.
+  * `beta1`: parameter of the momentum, `0.9` is recommended by default.
+  * `beta2`: parameter of the RMSprop, `0.999` is recommended by default.
   * `epsilon`: `10^-8` is recommended by default.
 
 ### Learning rate decay
@@ -621,7 +630,8 @@ Implications of L2-regularization on:
   * `epoch_num` is over all data \(not a single mini-batch\).
 * Other learning rate decay methods \(continuous\):
   * `learning_rate = (0.95 ^ epoch_num) * learning_rate_0`
-  * `learning_rate = (k / sqrt(epoch_num)) * learning_rate_0`
+  * `learning_rate = (k / sqrt(epoch_num)) * learning_rate_0`  or
+  * `learning_rate = (k / sqrt(mini-batch num)) * learning_rate_0`
 * Some people perform learning rate decay discretely - repeatedly decrease after some number of epochs.
 * Some people are making changes to the learning rate manually.
 * `decay_rate` is another `hyperparameter`.
@@ -634,6 +644,10 @@ Implications of L2-regularization on:
 * Plateaus can make learning slow:
   * Plateau is a region where the derivative is close to zero for a long time.
   * This is where algorithms like momentum, RMSprop or Adam can help.
+
+![](../../../.gitbook/assets/image%20%288%29.png)
+
+![](../../../.gitbook/assets/image%20%287%29.png)
 
 ## Hyperparameter tuning, Batch Normalization and Programming Frameworks
 
