@@ -455,7 +455,7 @@ Implications of L2-regularization on:
     `64, 128, 256, 512, 1024, ...`
 
     * Make sure that mini-batch fits in CPU/GPU memory.
-* Mini-batch size is a `hyperparameter`.
+* Mini-batch size is a `hyperparameter`
 
 ![](../../../.gitbook/assets/04-_batch_vs_mini_batch_cost.png)
 
