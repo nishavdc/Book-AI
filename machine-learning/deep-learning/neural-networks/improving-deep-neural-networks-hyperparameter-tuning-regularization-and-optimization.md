@@ -496,8 +496,6 @@ Implications of L2-regularization on:
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
 * Another imagery example:
 
-
-
   _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
 
 ![](../../../.gitbook/assets/Nasdaq1_small.png)

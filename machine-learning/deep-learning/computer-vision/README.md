@@ -12,8 +12,6 @@
 * **Superior Performance**: Techniques demonstrate better skill on challenging tasks.
 * **Promise of General Method:** A single general method can be used on a range of related tasks.
 
-
-
 Amazon Mechanical turk
 
 [https://www.cs.ryerson.ca/~aharley/vis/conv/](https://www.cs.ryerson.ca/~aharley/vis/conv/)
