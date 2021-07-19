@@ -557,6 +557,8 @@ Implications of L2-regularization on:
 * `beta` is another `hyperparameter`. `beta = 0.9` is very common and works very well in most cases.
 * In practice people don't bother implementing **bias correction**.
 
+![](../../../.gitbook/assets/image%20%286%29.png)
+
 ### RMSprop
 
 * Stands for **Root mean square prop**.
