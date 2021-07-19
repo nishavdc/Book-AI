@@ -251,7 +251,6 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   4. Normalize the variance. `X /= variance`
 * These steps should be applied to training, dev, and testing sets \(but using mean and variance of the train set\).
 * Why normalize?
-
   * If we don't normalize the inputs our cost function will be deep and its shape will be inconsistent \(elongated\) then optimizing it will take a long time.
   * But if we normalize it the opposite will occur. The shape of the cost function will be consistent \(look more symmetric like circle in 2D example\) and we can use a larger learning rate alpha - the optimization will be faster.
 
@@ -431,7 +430,6 @@ Implications of L2-regularization on:
 ### Understanding mini-batch gradient descent
 
 * In mini-batch algorithm, the cost won't go down with each step as it does in batch algorithm. It could contain some ups and downs but generally it has to go down \(unlike the batch gradient descent where cost function descreases on each iteration\).
-
 * Mini-batch size:
   * \(`mini batch size = m`\)  ==&gt;    Batch gradient descent
   * \(`mini batch size = 1`\)  ==&gt;    Stochastic gradient descent \(SGD\)
