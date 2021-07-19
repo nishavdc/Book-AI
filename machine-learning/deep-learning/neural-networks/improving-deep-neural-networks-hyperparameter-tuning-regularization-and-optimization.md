@@ -228,7 +228,6 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   * In this technique we plot the training set and the dev set cost together for each iteration. At some iteration the dev set cost will stop decreasing and will start increasing.
   * We will pick the point at which the training set error and dev set error are best \(lowest training cost with lowest dev cost\).
   * We will take these parameters as the best parameters.
-    * ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/02-_Early_stopping.png)
   * Andrew prefers to use L2 regularization instead of early stopping because this technique simultaneously tries to minimize the cost function and not to overfit which contradicts the orthogonalization approach \(will be discussed further\).
   * But its advantage is that you don't need to search a hyperparameter like in other regularization approaches \(like `lambda` in L2 regularization\).
 * **Model Ensembles**:
@@ -238,6 +237,8 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   * It can get you extra 2% performance.
   * It reduces the generalization error.
   * You can use some snapshots of your NN at the training ensembles them and take the results.
+
+![](../../../.gitbook/assets/02-_Early_stopping.png)
 
 ### Normalizing inputs
 
@@ -250,8 +251,11 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   4. Normalize the variance. `X /= variance`
 * These steps should be applied to training, dev, and testing sets \(but using mean and variance of the train set\).
 * Why normalize?
+
   * If we don't normalize the inputs our cost function will be deep and its shape will be inconsistent \(elongated\) then optimizing it will take a long time.
   * But if we normalize it the opposite will occur. The shape of the cost function will be consistent \(look more symmetric like circle in 2D example\) and we can use a larger learning rate alpha - the optimization will be faster.
+
+![](../../../.gitbook/assets/image%20%281%29.png)
 
 ### Vanishing / Exploding gradients
 
@@ -282,18 +286,18 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 * So If W &gt; I \(Identity matrix\) the activation and gradients will explode.
 * And If W &lt; I \(Identity matrix\) the activation and gradients will vanish.
 * Recently Microsoft trained 152 layers \(ResNet\)! which is a really big number. With such a deep neural network, if your activations or gradients increase or decrease exponentially as a function of L, then these values could get really big or really small. And this makes training difficult, especially if your gradients are exponentially smaller than L, then gradient descent will take tiny little steps. It will take a long time for gradient descent to learn anything.
-* There is a partial solution that doesn't completely solve this problem but it helps a lot - careful choice of how you initialize the weights \(next video\).
+* There is a partial solution that doesn't completely solve this problem but it helps a lot - careful choice of how you initialize the weights.
 
 ### Weight Initialization for Deep Networks
 
 * A partial solution to the Vanishing / Exploding gradients in NN is better or more careful choice of the random initialization of weights
 * In a single neuron \(Perceptron model\): `Z = w1x1 + w2x2 + ... + wnxn`
   * So if `n_x` is large we want `W`'s to be smaller to not explode the cost.
-* So it turns out that we need the variance which equals `1/n_x` to be the range of `W`'s
+* So we need `W`'s to have variance of `1/n_x`
 * So lets say when we initialize `W`'s like this \(better to use with `tanh` activation\):
 
   ```text
-  np.random.rand(shape) * np.sqrt(1/n[l-1])
+  np.random.rand(shape) * np.sqrt(1/n[l-1]) # Xavier initialization
   ```
 
   or variation of this \(Bengio et al.\):
@@ -314,11 +318,8 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
 
 ### Numerical approximation of gradients
 
-* There is an technique called gradient checking which tells you if your implementation of backpropagation is correct.
+* There is an technique called **gradient checking** which tells you if your implementation of backpropagation is correct.
 * There's a numerical way to calculate the derivative:
-
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/03-_Numerical_approximation_of_gradients.png)
-
 * Gradient checking approximates the gradients and is very helpful for finding the errors in your backpropagation implementation but it's slower than gradient descent \(so use only for debugging\).
 * Implementation of this is very simple.
 * Gradient checking:
@@ -338,6 +339,8 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
     * if around 10^-5   - can be OK, but need to inspect if there are no particularly big values in `d_theta_approx - d_theta` vector
     * if it is &gt;= 10^-3 - bad, probably there is a bug in backpropagation implementation
 
+![](../../../.gitbook/assets/03-_Numerical_approximation_of_gradients.png)
+
 ### Gradient checking implementation notes
 
 * Don't use the gradient checking algorithm at training time because it's very slow.
@@ -348,13 +351,19 @@ At test time we don't use dropout. If you implement dropout at test time - it wo
   * You can first turn off dropout \(set `keep_prob = 1.0`\), run gradient checking and then turn on dropout again.
 * Run gradient checking at random initialization and train the network for a while maybe there's a bug which can be seen when w's and b's become larger \(further from 0\) and can't be seen on the first iteration \(when w's and b's are very small\).
 
+![](../../../.gitbook/assets/image%20%284%29.png)
+
+![](../../../.gitbook/assets/image%20%283%29.png)
+
+![](../../../.gitbook/assets/image%20%282%29.png)
+
 ### Initialization summary
 
 * The weights W\[l\] should be initialized randomly to break symmetry
 * It is however okay to initialize the biases b\[l\] to zeros. Symmetry is still broken so long as W\[l\] is initialized randomly
 * Different initializations lead to different results
 * Random initialization is used to break symmetry and make sure different hidden units can learn different things
-* Don't intialize to values that are too large
+* Don't initialize to values that are too large
 * He initialization works well for networks with ReLU activations.
 
 ### Regularization summary
@@ -423,8 +432,6 @@ Implications of L2-regularization on:
 
 * In mini-batch algorithm, the cost won't go down with each step as it does in batch algorithm. It could contain some ups and downs but generally it has to go down \(unlike the batch gradient descent where cost function descreases on each iteration\).
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/04-_batch_vs_mini_batch_cost.png)
-
 * Mini-batch size:
   * \(`mini batch size = m`\)  ==&gt;    Batch gradient descent
   * \(`mini batch size = 1`\)  ==&gt;    Stochastic gradient descent \(SGD\)
@@ -447,6 +454,8 @@ Implications of L2-regularization on:
   1. Make sure that mini-batch fits in CPU/GPU memory.
 
 * Mini-batch size is a `hyperparameter`.
+
+![](../../../.gitbook/assets/04-_batch_vs_mini_batch_cost.png)
 
 ### Exponentially weighted averages
 
@@ -487,15 +496,13 @@ Implications of L2-regularization on:
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
 * Another imagery example:
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/Nasdaq1_small.png)
-
   _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
+
+![](../../../.gitbook/assets/Nasdaq1_small.png)
 
 ### Understanding exponentially weighted averages
 
 * Intuitions:
-
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/05-_exponentially_weighted_averages_intuitions.png)
 
 * We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
 * Algorithm is very simple:
@@ -508,6 +515,8 @@ Implications of L2-regularization on:
       v = beta * v + (1-beta) * theta(t)
   }
   ```
+
+![](../../../.gitbook/assets/05-_exponentially_weighted_averages_intuitions.png)
 
 ### Bias correction in exponentially weighted averages
 
@@ -563,14 +572,14 @@ Implications of L2-regularization on:
 
 * RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/06-_RMSprop.png)
-
 * Ensure that `sdW` is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
 
   `W = W - learning_rate * dW / (sqrt(sdW) + epsilon)`
 
 * With RMSprop you can increase your learning rate.
 * Developed by Geoffrey Hinton and firstly introduced on [Coursera.org](https://www.coursera.org/) course.
+
+![](../../../.gitbook/assets/06-_RMSprop.png)
 
 ### Adam optimization algorithm
 
@@ -711,7 +720,7 @@ Implications of L2-regularization on:
 
 * Using batch norm in 3 hidden layers NN:
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/bn.png)
+  ![](../../../.gitbook/assets/bn.png)
 
 * Our NN parameters will be:
   * `W[1]`, `b[1]`, ..., `W[L]`, `b[L]`, `beta[1]`, `gamma[1]`, ..., `beta[L]`, `gamma[L]`
@@ -815,7 +824,7 @@ Implications of L2-regularization on:
 
 * Example:
 
-  ![](https://github.com/niluwin/Book-AI/tree/fd12fea8db34fdd286f2dfcd090cca4f759224ba/machine-learning/deep-learning/neural-networks/Images/07-_softmax.png)
+![](../../../.gitbook/assets/07-_softmax.png)
 
 ### Deep learning frameworks
 
