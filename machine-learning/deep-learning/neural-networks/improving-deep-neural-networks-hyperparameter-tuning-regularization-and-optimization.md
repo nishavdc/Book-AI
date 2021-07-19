@@ -579,7 +579,7 @@ Implications of L2-regularization on:
 
 * RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
 
-* Ensure that `sdW` is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
+* Ensure that `sdW` , `sdb`is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
 
   `W = W - learning_rate * dW / (sqrt(sdW) + epsilon)`
 
