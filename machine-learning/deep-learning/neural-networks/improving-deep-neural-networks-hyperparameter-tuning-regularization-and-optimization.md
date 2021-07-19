@@ -632,7 +632,8 @@ Implications of L2-regularization on:
   * `epoch_num` is over all data \(not a single mini-batch\).
 * Other learning rate decay methods \(continuous\):
   * `learning_rate = (0.95 ^ epoch_num) * learning_rate_0`
-  * `learning_rate = (k / sqrt(epoch_num)) * learning_rate_0`
+  * `learning_rate = (k / sqrt(epoch_num)) * learning_rate_0`  or
+  * `learning_rate = (k / sqrt(mini-batch num)) * learning_rate_0`
 * Some people perform learning rate decay discretely - repeatedly decrease after some number of epochs.
 * Some people are making changes to the learning rate manually.
 * `decay_rate` is another `hyperparameter`.
@@ -645,6 +646,10 @@ Implications of L2-regularization on:
 * Plateaus can make learning slow:
   * Plateau is a region where the derivative is close to zero for a long time.
   * This is where algorithms like momentum, RMSprop or Adam can help.
+
+![](../../../.gitbook/assets/image%20%288%29.png)
+
+![](../../../.gitbook/assets/image%20%287%29.png)
 
 ## Hyperparameter tuning, Batch Normalization and Programming Frameworks
 
