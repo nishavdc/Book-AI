@@ -492,7 +492,7 @@ Implications of L2-regularization on:
   V(t) = beta * v(t-1) + (1-beta) * theta(t)
   ```
 
-* If we plot this it will represent averages over `~ (1 / (1 - beta))` entries:
+* If we plot this it will represent averages over `~ (1 / (1 - beta))` entries\(t's\):
   * `beta = 0.9` will average last 10 entries
   * `beta = 0.98` will average last 50 entries
   * `beta = 0.5` will average last 2 entries
@@ -509,18 +509,17 @@ Implications of L2-regularization on:
 ### Understanding exponentially weighted averages
 
 * Intuitions:
+  * We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
+  * Algorithm is very simple:
 
-* We can implement this algorithm with more accurate results using a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
-* Algorithm is very simple:
-
-  ```text
-  v = 0
-  Repeat
-  {
-      Get theta(t)
-      v = beta * v + (1-beta) * theta(t)
-  }
-  ```
+    ```text
+    v = 0
+    Repeat
+    {
+        Get theta(t)
+        v = beta * v + (1-beta) * theta(t)
+    }
+    ```
 
 ![](../../../.gitbook/assets/05-_exponentially_weighted_averages_intuitions.png)
 
