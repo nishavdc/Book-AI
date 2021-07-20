@@ -2,7 +2,7 @@
 
 **GStreamer** is a framework designed to handle multimedia flows. Media travels from the "source" elements \(the producers\), down to the "sink" elements \(the consumers\), passing through a series of intermediate elements performing all kinds of tasks. The set of all the interconnected elements is called a "pipeline"
 
-we are going to play a video. [Link](https://gstreamer.freedesktop.org/documentation/tutorials/basic/hello-world.html?gi-language=python#gst_parse_launch) 
+we are going to play a video. [Link](https://gstreamer.freedesktop.org/documentation/tutorials/basic/hello-world.html?gi-language=python#gst_parse_launch)
 
 {% code title="basic-tutorial-1.py" %}
 ```python
@@ -43,6 +43,4 @@ msg = bus.timed_pop_filtered(
 pipeline.set_state(Gst.State.NULL)
 ```
 {% endcode %}
-
-
 

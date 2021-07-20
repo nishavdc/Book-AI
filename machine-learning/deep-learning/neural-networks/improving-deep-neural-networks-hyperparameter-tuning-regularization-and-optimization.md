@@ -446,8 +446,8 @@ Implications of L2-regularization on:
      * you have the vectorization advantage
      * make progress without waiting to process the entire training set
   2. doesn't always exactly converge \(oscillates in a very small region, but you can reduce learning rate\)
-* Guidelines for choosing mini-batch size: 
-  *  If small training set \(&lt; 2000 examples\) - use batch gradient descent. Otherwise,
+* Guidelines for choosing mini-batch size:
+  * If small training set \(&lt; 2000 examples\) - use batch gradient descent. Otherwise,
   * It has to be a power of 2 \(because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2\):
 
     `64, 128, 256, 512, 1024, ...`
@@ -498,9 +498,7 @@ Implications of L2-regularization on:
 * **Intuition**: The reason why exponentially weighted averages are useful for further optimizing gradient descent algorithm is that it can give different weights to recent data points \(`theta`\) based on value of `beta`. If `beta` is high \(around 0.9\), it smoothens out the averages of skewed data points \(oscillations w.r.t. Gradient descent terminology\). So this reduces oscillations in gradient descent and hence makes faster and smoother path towerds minima.
 * Another imagery example:
 
-
-
-  _\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
+_\(taken from_ [_investopedia.com_](https://www.investopedia.com/)_\)_
 
 ![](../../../.gitbook/assets/Nasdaq1_small.png)
 
@@ -576,7 +574,6 @@ Implications of L2-regularization on:
   ```
 
 * RMSprop will make the cost function move slower on the vertical direction and faster on the horizontal direction in the following example:
-
 * Ensure that `sdW` , `sdb`is not zero by adding a small value `epsilon` \(e.g. `epsilon = 10^-8`\) to it:
 
   `W = W - learning_rate * dW / (sqrt(sdW) + epsilon)`
