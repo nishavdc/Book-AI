@@ -78,3 +78,5 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 
 
 
+
+
