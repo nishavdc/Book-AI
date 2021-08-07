@@ -4,15 +4,15 @@
 
 ### Types of supervised learning
 
-1. Classification
+1. Classification:
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
-    2. Regression
+    2. Regression:
 
 ![](../.gitbook/assets/image%20%2810%29.png)
 
-### Regression:
+### Regression
 
 A regression model relates y, or the dependent variable, to a function of x, i.e., the independent variables.
 
@@ -32,6 +32,8 @@ Two types of variables:
 
 ![](../.gitbook/assets/image%20%2813%29.png)
 
+### Linear regression
+
 #### Simple Linear Regression:
 
 ![](../.gitbook/assets/image%20%2816%29.png)
@@ -43,6 +45,26 @@ Two types of variables:
 The objective of linear regression is to minimize this MSE equation, and to minimize it, we should find the best parameters, θ0 and θ1.
 
 ![](../.gitbook/assets/image%20%2811%29.png)
+
+#### Multiple linear regression:
+
+* Extension of simple linear regression
+* Dependent variable y is a linear combination of independent variables x
+
+![](../.gitbook/assets/image%20%2820%29.png)
+
+* θ^T x in a one dimensional space, is the equation of a line. It is what we use in simple linear regression. 
+* In higher dimensions, when we have more than one input \(or x\), the line is called a plane or a hyper-plane and this is what we use for multiple linear regression.
+
+### Non linear regression
+
+
+
+
+
+
+
+
 
 
 
