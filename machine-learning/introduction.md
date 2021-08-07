@@ -8,13 +8,26 @@
 
 ![How traditional learning works](../.gitbook/assets/image%20%2814%29.png)
 
-![How machine learning works](../.gitbook/assets/image%20%2820%29.png)
+![How machine learning works](../.gitbook/assets/image%20%289%29%20%281%29.png)
 
 
 
 ### Major machine learning techniques:
 
-![](../.gitbook/assets/image%20%287%29.png)
-
-![](../.gitbook/assets/image%20%2812%29.png)
+* Regression/Estimation
+  * Predicting continuous values
+* Classification
+  * Predicting the item class/category of a case
+* Clustering
+  * Finding the structure of data
+* Associations
+  * Associating frequent co-occurring items/events
+* Anomaly detection
+  * discovering abnormal and unusual cases
+* Sequence mining
+  * Predicting next events; click-stream\(Markov model, HMM\)
+* Dimension Reduction
+  * Reducing the size of data\(PCA\)
+* Recommendation systems
+  * Recommending items
 
