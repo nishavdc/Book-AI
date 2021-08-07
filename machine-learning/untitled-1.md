@@ -53,7 +53,7 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 
 ![](../.gitbook/assets/image%20%2820%29.png)
 
-* θ^T x in a one dimensional space, is the equation of a line. It is what we use in simple linear regression. 
+* $$\theta^Tx$$in a one dimensional space, is the equation of a line. It is what we use in simple linear regression. 
 * In higher dimensions, when we have more than one input \(or x\), the line is called a plane or a hyper-plane and this is what we use for multiple linear regression.
 
 ### Non linear regression
@@ -61,8 +61,12 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 * Multiple linear regression:
   * Relationship between the independent variable x and the dependent variable y is modelled as an nth degree polynomial in x.
 * Non linear regression:
-  * y^ must be a non-linear function of the parameters \theta not necessarily the features x
-  * 
+  *  $$\hat{y}$$ must be a non-linear function of the parameters $$\theta $$ not necessarily the features x
+  * model is nonlinear by parameters
+
+## Classification
+
+
 
 
 
