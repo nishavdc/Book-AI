@@ -128,6 +128,8 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 * It is the entropy of a tree before the split minus the weighted entropy after the split by an attribute.
 * We can think of information gain and entropy as **opposites**.
 
+### Logistic Regression
+
 
 
 
