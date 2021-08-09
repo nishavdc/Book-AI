@@ -92,7 +92,7 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 * Precision is a measure of the accuracy, provided that a class label has been predicted.
 * Recall is the true positive rate.
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 #### Log Loss
 
@@ -101,6 +101,32 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 ![](../.gitbook/assets/image%20%2821%29.png)
 
 ### Decision Trees
+
+* Decision trees are built using recursive partitioning to classify the data.
+* The algorithm chooses the most predictive feature to split the data on.
+* What is important in making a decision tree, is to determine “which attribute is the best, or more predictive, to split data based on the feature.”
+* A node in the tree is considered “**pure**” if, in 100% of the cases, the nodes fall into a specific category of the target field.
+* ”Impurity” of nodes is calculated by “Entropy” of data in the node.
+
+![](../.gitbook/assets/image%20%2824%29.png)
+
+#### Entropy and Information gain
+
+* Entropy is the amount of information disorder, or the amount of randomness in the data.
+* The entropy in the node depends on how much random data is in that node and is calculated for each node.
+* In decision trees, we're looking for trees that have the smallest entropy in their nodes.
+* The entropy is used to calculate the homogeneity of the samples in that node.
+* If the samples are completely homogeneous the entropy is zero and if the samples are equally divided, it has an entropy of one.
+
+![P is for the proportion or ratio of a category](../.gitbook/assets/image%20%2823%29.png)
+
+* The tree with the higher **information gain** after splitting is used for branching.
+* **Information gain** is the information that can increase the level of certainty after splitting.
+
+![](../.gitbook/assets/image%20%2826%29.png)
+
+* It is the entropy of a tree before the split minus the weighted entropy after the split by an attribute.
+* We can think of information gain and entropy as **opposites**.
 
 
 
