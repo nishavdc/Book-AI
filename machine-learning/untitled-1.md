@@ -66,13 +66,41 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 
 ## Classification
 
+### K-Nearest Neighbors
 
+* The k-nearest-neighbors algorithm is a classification algorithm that takes a bunch of labelled points and uses them to learn how to label other points.
+* This algorithm classifies cases based on their similarity to other cases.
+* K-nearest neighbors is based on this paradigm: “Similar cases with the same class labels are near each other.”
 
+#### K-Nearest Neighbors Algorithm
 
+1.  Pick a value for K.
+2. Calculate the distance of unknown case from all cases.
+3. Select the K observations in the training data that are ‘nearest’ to the unknown data point.
+4. Predict the response of the unknown data point using the most popular response value from the K nearest neighbors.
 
+### Evaluation Metrics
 
+* Explains the performance of a model.
 
+#### Jaccard index
 
+![](../.gitbook/assets/image%20%2822%29.png)
+
+#### F1 Score
+
+* Precision is a measure of the accuracy, provided that a class label has been predicted.
+* Recall is the true positive rate.
+
+![](../.gitbook/assets/image%20%2823%29.png)
+
+#### Log Loss
+
+* Logarithmic loss \(also known as Log loss\) measures the performance of a classifier where the predicted output is a probability value between 0 and 1.
+
+![](../.gitbook/assets/image%20%2821%29.png)
+
+### Decision Trees
 
 
 
