@@ -142,7 +142,7 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 * 
 ![](../.gitbook/assets/image%20%2832%29.png)
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
 * The training process:
 
@@ -170,7 +170,7 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 * Also, we multiply the gradient value by a constant value $$\eta$$ , which is called the learning rate. Learning rate gives us additional control on how fast we move on the surface.
 * In sum, we can simply say, Gradient descent is like taking steps in the current direction of the slope, and the learning rate is like the length of the step you take.
 
-![](../.gitbook/assets/image%20%2837%29.png)
+![](../.gitbook/assets/image%20%2840%29.png)
 
 ### Support Vector Machine
 
@@ -179,7 +179,7 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 * Following this, characteristics of new data can be used to predict the group to which a new record should belong.
 * mapping data into a higher dimensional space is called **kernelling.**
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2838%29.png)
 
 #### Pros and cons of SVM:
 

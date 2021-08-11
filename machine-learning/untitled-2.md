@@ -15,5 +15,19 @@
 
 ## Clustering
 
+* A cluster is group of data points or objects in a dataset that are similar to other objects in the group, and dissimilar to data points in other clusters.
+
+#### Clustering applications:
+
+![](../.gitbook/assets/image%20%2833%29.png)
+
+![](../.gitbook/assets/image%20%2837%29.png)
+
+#### Clustering Algorithms:
+
+![](../.gitbook/assets/image%20%2834%29.png)
+
+### K-means Clustering
+
 
 
