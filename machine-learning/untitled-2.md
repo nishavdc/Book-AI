@@ -29,15 +29,15 @@
 
 ### K-means Clustering
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2852%29.png)
 
 **Algorithm:**
 
-![](../.gitbook/assets/image%20%2848%29.png)
+![](../.gitbook/assets/image%20%2849%29.png)
 
 **K-Means Accuracy:**
 
-![](../.gitbook/assets/image%20%2847%29.png)
+![](../.gitbook/assets/image%20%2848%29.png)
 
 **Choosing value of K:**
 
@@ -47,11 +47,13 @@
 
 * Hierarchical clustering algorithms build a hierarchy of clusters where each node is a cluster consisting of the clusters of its daughter nodes.
 
-![](../.gitbook/assets/image%20%2845%29.png)
+![](../.gitbook/assets/image%20%2846%29.png)
 
 #### Agglomerative Algorithm:
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2853%29.png)
 
+* Distance between clusters:
 
+![](../.gitbook/assets/image%20%2844%29.png)
 
