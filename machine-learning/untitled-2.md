@@ -29,37 +29,37 @@
 
 ### K-means Clustering
 
-![](../.gitbook/assets/image%20%2857%29.png)
+![](../.gitbook/assets/image%20%2858%29.png)
 
 **Algorithm:**
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2853%29.png)
 
 **K-Means Accuracy:**
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2852%29.png)
 
 **Choosing value of K:**
 
-![](../.gitbook/assets/image%20%2843%29.png)
+![](../.gitbook/assets/image%20%2844%29.png)
 
 ### **Hierarchical Clustering**
 
 * Hierarchical clustering algorithms build a hierarchy of clusters where each node is a cluster consisting of the clusters of its daughter nodes.
 
-![](../.gitbook/assets/image%20%2848%29.png)
+![](../.gitbook/assets/image%20%2849%29.png)
 
 #### Agglomerative Algorithm:
 
-![](../.gitbook/assets/image%20%2859%29.png)
+![](../.gitbook/assets/image%20%2860%29.png)
 
 #### Distance between clusters:
 
-![](../.gitbook/assets/image%20%2845%29.png)
+![](../.gitbook/assets/image%20%2846%29.png)
 
-![](../.gitbook/assets/image%20%2842%29.png)
+![](../.gitbook/assets/image%20%2843%29.png)
 
-![](../.gitbook/assets/image%20%2858%29.png)
+![](../.gitbook/assets/image%20%2859%29.png)
 
 ### Density Based Clustering\(DBSCAN\)
 
@@ -67,13 +67,13 @@
 * The attribute of the DBSCAN algorithm is that it can find out any arbitrary shape cluster without getting affected by noise.
 * DBSCAN stands for **D**ensity-**B**ased **S**patial **C**lustering of **A**pplications with **N**oise.
 * 
-![](../.gitbook/assets/image%20%2854%29.png)
+![](../.gitbook/assets/image%20%2855%29.png)
 
-![](../.gitbook/assets/image%20%2846%29.png)
+![](../.gitbook/assets/image%20%2847%29.png)
 
 #### How DBSCAN Works:
 
-![](../.gitbook/assets/image%20%2853%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 **Core point**: A data point is a core point if, within R-neighborhood of the point, there are at least M points.
 
@@ -84,7 +84,9 @@
 
 **Oulier:**  An outlier is a point that: Is not a core point, and also, is not close enough to be reachable from a core point.
 
+![](../.gitbook/assets/image%20%2841%29.png)
 
+#### Advantages of DBSCAN:
 
-
+![](../.gitbook/assets/image%20%2861%29.png)
 
