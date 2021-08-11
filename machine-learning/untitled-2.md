@@ -29,5 +29,21 @@
 
 ### K-means Clustering
 
+![](../.gitbook/assets/image%20%2850%29.png)
 
+**Algorithm:**
+
+![](../.gitbook/assets/image%20%2847%29.png)
+
+**K-Means Accuracy:**
+
+![](../.gitbook/assets/image%20%2846%29.png)
+
+**Choosing value of K:**
+
+![](../.gitbook/assets/image%20%2842%29.png)
+
+### **Hierarchical Clustering**
+
+* Hierarchical clustering algorithms build a hierarchy of clusters where each node is a cluster consisting of the clusters of its daughter nodes.
 
