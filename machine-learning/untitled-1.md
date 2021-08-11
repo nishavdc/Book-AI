@@ -130,6 +130,9 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 
 ### Logistic Regression
 
+* Logistic regression is a statistical and machine learning technique for classifying records of a dataset, based on the values of the input fields.
+* In logistic regression, dependent variables should be continuous; if categorical, they should be dummy or indicator-coded.
+
 
 
 
