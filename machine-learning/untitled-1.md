@@ -132,8 +132,33 @@ The objective of linear regression is to minimize this MSE equation, and to mini
 
 * Logistic regression is a statistical and machine learning technique for classifying records of a dataset, based on the values of the input fields.
 * In logistic regression, dependent variables should be continuous; if categorical, they should be dummy or indicator-coded.
+* The main objective of training in logistic regression, is to change the parameters of the model, so as to be the best estimation of the labels of the samples in the dataset.
 
+#### Sigmoid function:
 
+* The sigmoid function, also called the logistic function, resembles the step function and is used by the following expression in the logistic regression.
+* In logistic regression, we model the probability that an input \(X\) belongs to the default class \(Y=1\), and we can write this formally as, $$ P(Y=1|X)$$ .
+*  $$P(y=0|X) = 1 - P(y=1|X)$$ 
+* 
+![](../.gitbook/assets/image%20%2831%29.png)
+
+![](../.gitbook/assets/image%20%2832%29.png)
+
+* The training process:
+
+![](../.gitbook/assets/image%20%2829%29.png)
+
+* Changing the value of $$\theta$$ to reduce the cost : gradient descent
+
+#### Logistic regression cost function
+
+* $$\hat{y}$$ does not return a class as output, but it’s a value of \(0,1\), which should be assumed as a probability. 
+
+#### Gradient Descent
+
+* Gradient descent is an iterative approach to finding the minimum of a function.
+* Gradient descent is a technique to use the derivative of a cost function to change the parameter values, to minimize the cost or error.
+* The gradient is the slope of the surface at every point. And, the direction of the gradient is the direction of the greatest uphill
 
 
 
