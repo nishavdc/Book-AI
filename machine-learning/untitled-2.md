@@ -1,7 +1,7 @@
 # Unsupervised Learning
 
-* The model works on its own to discover information
-* unlabeled data is fed as input
+* The model works on its own to discover information.
+* unlabeled data is fed as input.
 
 ### Unsupervised learning techniques:
 
@@ -12,4 +12,8 @@
 * Market basket analysis
 * Clustering
   * grouping data points or objects that are similar.
+
+## Clustering
+
+
 
