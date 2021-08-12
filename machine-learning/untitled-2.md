@@ -90,3 +90,27 @@
 
 ![](../.gitbook/assets/image%20%2861%29.png)
 
+## Recommender Systems
+
+Two types:
+
+* Content based
+  * Show me more of the same of what I've liked before.
+  * The recommendation in a content-based system is based on user’s tastes, and the content or feature set items.
+* Collaborative filtering
+  * Tell me what's popular among my neighbors because I might like it too.
+  * User based:
+    * User-based collaborative filtering is based on the user’s similarity or neighborhood.
+  * Item based:
+    * Item-based collaborative filtering is based on similarity among items.
+  * 
+
+#### **Implementing recommender systems**
+
+* Memory based
+  * In memory-based approaches, we use the entire user-item dataset to generate a recommendation systems
+* Model based
+  * In model-based approaches, a model of users is developed in an attempt to learn their preferences.
+
+
+
