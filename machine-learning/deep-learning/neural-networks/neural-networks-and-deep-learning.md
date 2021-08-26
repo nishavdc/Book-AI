@@ -72,17 +72,17 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * Single neuron == linear regression without applying activation\(perceptron\)
 * Basically a single neuron will calculate weighted sum of input\(W.T\*X\) and then we can set a threshold to predict output in a perceptron. If weighted sum of input cross the threshold, perceptron fires and if not then perceptron doesn't predict.
-* Perceptron can take real values input or boolean values.
+* Perceptron can take real values as input or Boolean values.
 * Actually, when w⋅x+b=0 the perceptron outputs 0.
-* Disadvantage of perceptron is that it only output binary values and if we try to give small change in weight and bais then perceptron can flip the output. We need some system which can modify the output slightly according to small change in weight and bias. Here comes sigmoid function in picture.
+* Disadvantage of perceptron is that it only outputs binary values and if we try to give small change in weight and bias then perceptron can flip the output. We need some system which can modify the output slightly according to small change in weight and bias. Here comes sigmoid function in picture.
 * If we change perceptron with a sigmoid function, then we can make slight change in output.
 * e.g. output in perceptron = 0, you slightly changed weight and bias, output becomes = 1 but actual output is 0.7. In case of sigmoid, output1 = 0, slight change in weight and bias, output = 0.7. 
 * If we apply sigmoid activation function then Single neuron will act as Logistic Regression.
 * we can understand difference between perceptron and sigmoid function by looking at sigmoid function graph.
 * Simple NN graph:
   * * Image taken from [tutorialspoint.com](http://www.tutorialspoint.com/)
-* RELU stands for rectified linear unit is the most popular activation function right now that makes deep NNs train faster now.
-* Hidden layers predicts connection between inputs automatically, thats what deep learning is good at.
+* RELU stands for Rectified Linear Unit is the most popular activation function right now that makes deep NNs train faster now.
+* Hidden layers predicts connection between inputs automatically, that's what deep learning is good at.
 * Deep NN consists of more hidden layers \(Deeper layers\)
   * * Image taken from [opennn.net](http://www.opennn.net/)
 * Each Input will be connected to the hidden layer and the NN will decide the connections.
@@ -100,7 +100,7 @@ Here are the course summary as its given on the course [link](https://www.course
   * Standard NN \(Useful for Structured data\)
   * Hybrid/custom NN or a Collection of NNs types
 * Structured data is like the databases and tables.
-* Unstructured data is like images, video, audio, and text.
+* Unstructured data is like images, video, audio and text.
 * Structured data gives more money because companies relies on prediction on its big data.
 
 ### Why is deep learning taking off?
@@ -117,11 +117,13 @@ Here are the course summary as its given on the course [link](https://www.course
     * Mobiles
     * IOT \(Internet of things\)
     * Computation:
-  * GPUs.
-  * Powerful CPUs.
-  * Distributed computing.
-  * ASICs
-    1. Algorithm:
+      * GPUs.
+      * Powerful CPUs.
+      * Distributed computing.
+      * ASICs
+
+  1. Algorithm:
+
   * Creative algorithms has appeared that changed the way NN works.
     * For example using RELU function is so much better than using SIGMOID function in training a NN because it helps with the vanishing gradient problem.
 
@@ -151,7 +153,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Logistic regression
 
-* Algorithm is used for classification algorithm of 2 classes.
+* Algorithm is used as classification algorithm of 2 classes.
 * Equations:
   * Simple equation:    `y = wx + b`
   * If x is a vector: `y = w(transpose)x + b`
@@ -168,7 +170,7 @@ Here are the course summary as its given on the course [link](https://www.course
 * This is the function that we will use: `L(y',y) = - (y*log(y') + (1-y)*log(1-y'))`
 * To explain the last function lets see:
   * if `y = 1` ==&gt; `L(y',1) = -log(y')`  ==&gt; we want `y'` to be the largest   ==&gt; `y`' biggest value is 1
-  * if `y = 0` ==&gt; `L(y',0) = -log(1-y')` ==&gt; we want `1-y'` to be the largest ==&gt; `y'` to be smaller as possible because it can only has 1 value.
+  * if `y = 0` ==&gt; `L(y',0) = -log(1-y')` ==&gt; we want `1-y'` to be the largest ==&gt; `y'` to be smaller as possible because it can only have 1 value.
 * Then the Cost function will be: `J(w,b) = (1/m) * Sum(L(y'[i],y[i]))`
 * The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
 
@@ -176,8 +178,8 @@ Here are the course summary as its given on the course [link](https://www.course
 
 * We want to predict `w` and `b` that minimize the cost function.
 * Our cost function is convex.
-* First we initialize `w` and `b` to 0,0 or initialize them to a random value in the convex function and then try to improve the values the reach minimum value.
-* In Logistic regression people always use 0,0 instead of random. But initializing `w` and `b` to ramdom values also givesthe same final values of `w` and `b` as our loss function is convex.
+* First we initialize `w` and `b` to 0,0 or initialize them to a random value in the convex function and then try to improve the values to reach the minimum value.
+* In Logistic regression people always use 0,0 instead of random. But initializing `w` and `b` to random values also gives the same final values of `w` and `b` as our loss function is convex.
 * The gradient decent algorithm repeats: `w = w - alpha * dw`
 
   where alpha is the learning rate and `dw` is the derivative of `w` \(Change to `w`\)
@@ -187,7 +189,7 @@ Here are the course summary as its given on the course [link](https://www.course
 * Looks like greedy algorithms. the derivative give us the direction to improve our parameters.
 * The actual equations we will implement:
   * `w = w - alpha * d(J(w,b) / dw)`        \(how much the function slopes in the w direction\)
-  * `b = b - alpha * d(J(w,b) / db)`        \(how much the function slopes in the d direction\)
+  * `b = b - alpha * d(J(w,b) / db)`        \(how much the function slopes in the b direction\)
 
 ### Derivatives
 
@@ -205,7 +207,7 @@ Here are the course summary as its given on the course [link](https://www.course
   * `a = 2.0001` ==&gt; `f(a) = 4.0004` approx.
 * `f(a) = a^3`  ==&gt; `d(f(a))/d(a) = 3a^2`
 * `f(a) = log(a)`  ==&gt; `d(f(a))/d(a) = 1/a`
-* To conclude, Derivative is the slope and slope is different in different points in the function thats why the derivative is a function.
+* To conclude, Derivative is the slope and slope is different in different points in the function that's why the derivative is a function.
 * On a straight line the derivative doesn't change. For other functions derivative can have different values at different points.
 
 ### Computation graph
@@ -248,7 +250,8 @@ Here are the course summary as its given on the course [link](https://www.course
       Y(i)                Expected output of i
   ```
 
-* So we have: ![](../../../.gitbook/assets/09.png)
+* So we have:
+*  ![](../../../.gitbook/assets/09.png)
 * Then from right to left we will calculate derivations compared to the result:
 
   ```text
@@ -295,7 +298,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Vectorization
 
-* Deep learning shines when the dataset are big. However for loops will make you wait a lot for a result. Thats why we need vectorization to get rid of some of our for loops.
+* Deep learning shines when the dataset are big. However for loops will make you wait a lot for a result. That's  why we need vectorization to get rid of some of our for loops.
 * NumPy library \(dot\) function is using vectorization by default.
 * The vectorization can be done on CPU or GPU thought the SIMD operation. But its faster on GPU.
 * Whenever possible avoid for loops.
@@ -330,10 +333,10 @@ Here are the course summary as its given on the course [link](https://www.course
 * In NumPy, `obj.reshape(1,4)` changes the shape of the matrix by broadcasting the values.
 * Reshape is cheap in calculations so put it everywhere you're not sure about the calculations.
 * Broadcasting works when you do a matrix operation with matrices that doesn't match for the operation, in this case NumPy automatically makes the shapes ready for the operation by broadcasting the values.
-* In general principle of broadcasting. If you have an \(m,n\) matrix and you add\(+\) or subtract\(-\) or multiply\(\*\) or divide\(/\) with a \(1,n\) matrix, then this will copy it m times into an \(m,n\) matrix. The same with if you use those operations with a \(m , 1\) matrix, then this will copy it n times into \(m, n\) matrix. And then apply the addition, subtraction, and multiplication of division element wise.
+* In general principle of broadcasting. If you have an \(m,n\) matrix and you add\(+\) or subtract\(-\) or multiply\(\*\) or divide\(/\) with a \(1,n\) matrix, then this will copy it m times into an \(m,n\) matrix. The same with if you use those operations with a \(m , 1\) matrix, then this will copy it n times into \(m, n\) matrix. And then apply the addition, subtraction, and multiplication or division element wise.
 * Some tricks to eliminate all the strange bugs in the code:
   * If you didn't specify the shape of a vector, it will take a shape of `(m,)` and the transpose operation won't work. You have to reshape it to `(m, 1)`
-  * Try to not use the rank one matrix in ANN
+  * Try to not use the **rank one** matrix in ANN
   * Don't hesitate to use `assert(a.shape == (5,1))` to check if your matrix shape is the required one.
   * If you've found a rank one matrix try to run reshape on it.
 * Jupyter / IPython notebooks are so useful library in python that makes it easy to integrate code and document at the same time. It runs in the browser and doesn't need an IDE to run.
@@ -395,7 +398,7 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Neural Network Representation
 
 * We will define the neural networks that has one hidden layer.
-* NN contains of input layers, hidden layers, output layers.
+* NN contains input layers, hidden layers, output layers.
 * Hidden layer means we cant see that layers in the training set.
 * `a0 = X` \(the input layer\)
 * `a1` will represent the activation of the hidden neurons.
