@@ -412,7 +412,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
   \* 
 
-* Here are some informations about the last image:
+* Here is some information about the last image:
   * `noOfHiddenNeurons = 4`
   * `Nx = 3`
   * Shapes of the variables:
