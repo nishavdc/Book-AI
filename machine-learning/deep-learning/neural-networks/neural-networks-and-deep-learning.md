@@ -609,7 +609,7 @@ Here are the course summary as its given on the course [link](https://www.course
 * `g[l]` is the activation function.
 * `a[l] = g[l](z[l])`
 * `w[l]` weights is used for `z[l]`
-* `x = a[0]`, `a[l] = y'`
+* `x = a[0]`, `a[L] = y'`
 * These were the notation we will use for deep neural network.
 * So we have:
   * A vector `n` of shape `(1, NoOfLayers+1)`
@@ -623,17 +623,17 @@ Here are the course summary as its given on the course [link](https://www.course
 
   ```text
   z[l] = W[l]a[l-1] + b[l]
-  a[l] = g[l](a[l])
+  a[l] = g[l](z[l])
   ```
 
 * Forward propagation general rule for `m` inputs:
 
   ```text
   Z[l] = W[l]A[l-1] + B[l]
-  A[l] = g[l](A[l])
+  A[l] = g[l](Z[l])
   ```
 
-* We can't compute the whole layers forward propagation without a for loop so its OK to have a for loop here.
+* We can't compute the whole layer's forward propagation without a for loop so its OK to have a for loop here.
 * The dimensions of the matrices are so important you need to figure it out.
 
 ### Getting your matrix dimensions right
@@ -671,8 +671,6 @@ Here are the course summary as its given on the course [link](https://www.course
   * 
 
 ![](../../../.gitbook/assets/08.png)
-
-![Untitled](../../../.gitbook/assets/10.png)
 
 ### Forward and Backward Propagation
 
