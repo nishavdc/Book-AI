@@ -251,7 +251,11 @@ Here are the course summary as its given on the course [link](https://www.course
   ```
 
 * So we have:
-*  ![](../../../.gitbook/assets/09.png)
+
+![](../../../.gitbook/assets/09.png)
+
+
+
 * Then from right to left we will calculate derivations compared to the result:
 
   ```text
