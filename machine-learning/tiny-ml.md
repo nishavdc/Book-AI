@@ -4,9 +4,9 @@ TinyML, or tiny machine learning, is a fast-growing field of machine learning te
 
 > Example: Elephant Edge program
 
-![](../.gitbook/assets/image%20%2866%29.png)
+![](../.gitbook/assets/image%20%2867%29.png)
 
-![](../.gitbook/assets/image%20%2865%29.png)
+![](../.gitbook/assets/image%20%2866%29.png)
 
 The ML aspect is actually doing risk monitoring, activity detection and communication monitoring based on the sensors that are going to be on the caller. So the critical nugget, the intersection, really is this, that you need to understand the fundamental needs of the application, and understand where and why and how the ML is going to serve a purpose.
 
@@ -32,7 +32,9 @@ TinyML can provide a unique solution: by summarizing and analyzing data at the e
 
 In the industrial setting, TinyML is already being used to provide smarter sensing that enables advanced monitoring improving productivity and safety. For example, maintenance and monitoring of remote wind turbines can be quite challenging and time-consuming. However, if we could proactively predict that the machine will have trouble, we can predictively do maintenance ahead of any failures. Such “predictive maintenance” can lead to significant cost savings due to reduced downtimes, better availability of the systems for higher reliability in the product, which leads to overall higher quality of service for end-users/customers.
 
-![](../.gitbook/assets/image%20%2867%29.png)
-
 ![](../.gitbook/assets/image%20%2868%29.png)
+
+![](../.gitbook/assets/image%20%2869%29.png)
+
+![](../.gitbook/assets/image%20%2865%29.png)
 
