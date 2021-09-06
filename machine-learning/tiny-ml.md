@@ -34,5 +34,5 @@ In the industrial setting, TinyML is already being used to provide smarter sensi
 
 ![](../.gitbook/assets/image%20%2867%29.png)
 
-
+![](../.gitbook/assets/image%20%2868%29.png)
 
